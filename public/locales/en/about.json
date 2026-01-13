@@ -1,0 +1,76 @@
+{
+  "hero": {
+    "associationName": "Association Initiative Al Amal Pour l'Intégration Sociale",
+    "title": "WHO WE ARE",
+    "description1": "Founded in 2018, the Al Amal Initiative Association helps young people in precarious situations, particularly former residents of social protection establishments, to integrate socio-economically.",
+    "description2": "It offers professional training, personal development, and academic support, all while working with partners to provide a solid support network.",
+    "discoverActions": "Discover our actions",
+    "makeDonation": "Make a Donation"
+  },
+  "fullDescription": {
+    "title": "Association Initiative Al Amal Pour l'Intégration Sociale",
+    "description": "Founded in 2018, the Al Amal Initiative Association helps young people in precarious situations, particularly former residents of social protection establishments, to integrate socio-economically. It offers professional training, personal development, and academic support, all while working with partners to provide a solid support network. The association also advocates for inclusive policies in favor of these young people, in order to build a more equitable society."
+  },
+  "presidentMessage": {
+    "title": "President's Message",
+    "portrait": "Portrait of Hani El Harraq, President of the Association",
+    "greeting": "Dear members and partners of the Association Initiative Al Amal for Social Integration,",
+    "paragraph1": "In this new year, I would like to express my deep gratitude to each of you who, since the creation of our association in 2018, has contributed to making Initiative Al Amal a major player in the field of social protection and professional integration of young people from social protection establishments throughout the kingdom. Our commitment to dignity, the right to a second chance, and social protection remains at the heart of our action.",
+    "paragraph2": "As a nationally recognized association, we have consolidated our impact through fruitful partnerships and conventions with the public and private sectors. The coming year offers new opportunities to strengthen our mission and extend our positive influence.",
+    "paragraph3": "Together, let us continue to work to offer a promising future to young orphans, focusing on social and professional integration. I count on your continued commitment and unwavering support to make every initiative a source of positive transformation in the lives of those we serve.",
+    "closing": "With my warmest regards,",
+    "signature": "Hani El Harraq",
+    "position": "President of the Association"
+  },
+  "cta": {
+    "title": "Join us in our mission",
+    "description": "Together, we can make a difference in the lives of young people in precarious situations.",
+    "supportUs": "Support Us"
+  },
+  "history": {
+    "title": "Our History",
+    "items": {
+      "2018": {
+        "title": "Foundation",
+        "description": "Under the presidency of Mr. Hani EL HARRAQ. The association is dedicated to supporting and guiding young people in precarious situations, particularly residents from social protection establishments (EPS)."
+      },
+      "2019": {
+        "title": "Partnerships",
+        "description": "The association establishes actions and partnerships with public and private actors, in order to strengthen its action and offer comprehensive support to young beneficiaries."
+      },
+      "2020": {
+        "title": "Expansion",
+        "description": "It succeeded in expanding its network of partners, strengthening its support actions, and increasing its impact on the lives of young people in precarious situations."
+      },
+      "2021": {
+        "title": "Forsa wa Taahil Program",
+        "description": "Launch of the \"Forsa wa Taahil\" program, targeting different profiles of young people, particularly orphaned high school graduates, graduates, and those seeking professional integration. The program aims to accompany them towards employment and autonomy."
+      },
+      "2022": {
+        "title": "Strengthening",
+        "description": "We continue to implement the program to expand our field of action and strengthen collaborations to achieve our goals of social and economic integration."
+      },
+      "2023": {
+        "title": "Achievements",
+        "description": "The year 2023 was a year of progress and achievements for the Al Amal Initiative Association. We are proud of the advances we have made and determined to continue our commitment to a better future for all."
+      },
+      "2024": {
+        "title": "Strengthening",
+        "description": "We continue to implement the program to expand our field of action and strengthen collaborations to achieve our goals of social and economic integration."
+      },
+      "2025": {
+        "title": "Achievements",
+        "description": "The year 2023 was a year of progress and achievements for the Al Amal Initiative Association. We are proud of the advances we have made and determined to continue our commitment to a better future for all."
+      }
+    }
+  },
+  "executiveMembers": {
+    "title": "Executive Board",
+    "loading": "Loading..."
+  },
+  "impacts": {
+    "title": "Some of Our Impacts",
+    "viewGraph": "Click to view graph"
+  }
+}
+

@@ -1,0 +1,120 @@
+{
+  "hero": {
+    "programName": "Programme FORSA & TAAHIL",
+    "title": "Ce que nous faisons",
+    "description1": "Une initiative d'intégration socio-économique des jeunes orphelins et en situation précaire à travers tout le Maroc.",
+    "description2": "Depuis 2021, FORSA & TAAHIL encadre, forme et insère les jeunes issus des orphelinats en s'appuyant sur trois piliers : encadrement, formation, insertion.",
+    "discoverProgram": "Découvrir le programme",
+    "seeAccompanied": "Voir les jeunes accompagnés"
+  },
+  "timeline": {
+    "launch": "Lancement du programme FORSA & TAAHIL",
+    "launchDescription": "Début de l'accompagnement structuré des jeunes issus des orphelinats.",
+    "supervision": "ENCADREMENT",
+    "training": "FORMATION",
+    "integration": "INSERTION",
+    "accompanied": "Jeunes accompagnés"
+  },
+  "program": {
+    "subtitle": "Programme d'Intégration",
+    "title": "Programme FORSA & TAAHIL",
+    "description": "Inspiré par les besoins réels du terrain, le programme développé par l'Association Al Amal vise l'intégration socio-économique des jeunes issus des orphelinats du Maroc, en partenariat avec des acteurs publics et privés."
+  },
+  "presentation": {
+    "title": "Présentation",
+    "description": "Lancé en janvier 2021, le programme FORSA & TAAHIL accompagne les jeunes pensionnaires et anciens pensionnaires des orphelinats à travers l'encadrement, la formation et l'insertion sociale et professionnelle. Il met l'accent sur le renforcement de l'autonomie sociale et l'indépendance économique, avec l'insertion professionnelle comme pilier majeur."
+  },
+  "problematic": {
+    "title": "Problématique",
+    "description": "De nombreux jeunes orphelins, à 18 ans, quittent les structures de protection sans accompagnement suffisant. Sans diplôme ou avec un parcours scolaire interrompu, ils rencontrent de grandes difficultés à s'insérer sur le marché du travail et à devenir des acteurs actifs de la société."
+  },
+  "objective": {
+    "title": "Objectif",
+    "description": "Contribuer à l'intégration sociale et professionnelle des jeunes orphelins et de ceux en situation précaire au Maroc, en leur offrant un accompagnement structuré fondé sur trois piliers essentiels : Encadrement, Formation et Insertion."
+  },
+  "pillars": {
+    "title": "Trois piliers pour une intégration durable",
+    "subtitle": "intégration durable"
+  },
+  "results": {
+    "title": "Résultats obtenus",
+    "impactLabel": "Impact Mesurable"
+  },
+  "beneficiaries": {
+    "title": "Les jeunes que nous accompagnons",
+    "subtitle": "accompagnons",
+    "description": "Le programme s'adresse à des profils très différents, mais avec un même objectif : offrir à chaque jeune une trajectoire claire vers l'autonomie, quel que soit son point de départ."
+  },
+  "analysis": {
+    "title": "Analyse de nos bénéficiaires",
+    "lineChartTitle": "Évolution annuelle des bénéficiaires admis par catégorie",
+    "pieChartTitle": "Répartition de notre cible",
+    "beneficiariesLabel": "{{count}} bénéficiaires",
+    "year": "Année {{year}}"
+  },
+  "download": {
+    "button": "Télécharger les détails du programme FORSA & TAAHIL"
+  },
+  "pillarsData": {
+    "supervision": {
+      "title": "Encadrement",
+      "description": "Un accompagnement global et humain pour aider chaque jeune à construire son projet de vie et à sortir de la précarité.",
+      "details": [
+        "Suivi individuel des jeunes issus des orphelinats et des établissements de protection sociale",
+        "Accompagnement psychologique et social continu",
+        "Orientation vers les dispositifs adaptés à chaque profil"
+      ]
+    },
+    "training": {
+      "title": "Formation",
+      "description": "Des parcours de formation adaptés aux réalités du terrain pour développer des compétences utiles et rapidement mobilisables.",
+      "details": [
+        "Formations professionnelles courtes ou qualifiantes",
+        "Renforcement des compétences scolaires pour les bacheliers",
+        "Développement des soft skills : confiance en soi, autonomie, communication"
+      ]
+    },
+    "integration": {
+      "title": "Insertion",
+      "description": "L'insertion sociale et économique comme finalité : permettre à chaque jeune de devenir acteur de son avenir.",
+      "details": [
+        "Mise en relation avec un large réseau de partenaires publics et privés",
+        "Accompagnement vers l'emploi, l'alternance ou l'entrepreneuriat",
+        "Suivi après l'insertion pour sécuriser les parcours"
+      ]
+    }
+  },
+  "profilesData": {
+    "bacheliers": {
+      "title": "Bacheliers",
+      "tag": "Excellence",
+      "description": "Les jeunes orphelins ayant atteint le niveau du baccalauréat bénéficient d'un accompagnement complet jusqu'à l'obtention de leur diplôme et la poursuite d'études supérieures.",
+      "details": [
+        "Prise en charge des frais liés à la scolarité et au transport.",
+        "Suivi pédagogique régulier et soutien à la réussite.",
+        "Mise en avant de l'excellence académique (mentions, grandes écoles)."
+      ]
+    },
+    "graduates": {
+      "title": "Diplômés",
+      "tag": "Insertion",
+      "description": "Les jeunes orphelins déjà diplômés sont accompagnés vers l'emploi grâce à un réseau de partenaires dans de nombreux secteurs.",
+      "details": [
+        "Recherche d'opportunités en entreprise (stages, emplois).",
+        "Prise en charge du transport, du logement et parfois de la nourriture.",
+        "Accompagnement jusqu'à la stabilisation de la situation professionnelle."
+      ]
+    },
+    "neet": {
+      "title": "NEET",
+      "tag": "Seconde chance",
+      "description": "La catégorie la plus nombreuse regroupe les jeunes sans diplôme, ni formation, ni emploi, souvent en situation de grande précarité.",
+      "details": [
+        "Formations de courte durée débouchant sur un diplôme ou certificat.",
+        "Accompagnement psychologique et social renforcé.",
+        "Soutien matériel complet (nourriture, transport, logement) jusqu'à stabilisation."
+      ]
+    }
+  }
+}
+

@@ -1,0 +1,76 @@
+{
+  "hero": {
+    "associationName": "Association Initiative Al Amal Pour l'Intégration Sociale",
+    "title": "QUI NOUS SOMMES",
+    "description1": "Fondée en 2018, l'Association Initiative Al Amal aide les jeunes en situation précaire, notamment les anciens pensionnaires des établissements de protection sociale, à s'intégrer socio-économiquement.",
+    "description2": "Elle propose des formations professionnelles, du développement personnel, et un accompagnement scolaire, tout en travaillant avec des partenaires pour offrir un réseau de soutien solide.",
+    "discoverActions": "Découvrir nos actions",
+    "makeDonation": "Faire un don"
+  },
+  "fullDescription": {
+    "title": "Association Initiative Al Amal Pour L'integration Sociale",
+    "description": "Fondée en 2018, l'Association Initiative Al Amal aide les jeunes en situation précaire, notamment les anciens pensionnaires des établissements de protection sociale, à s'intégrer socio-économiquement. Elle propose des formations professionnelles, du développement personnel, et un accompagnement scolaire, tout en travaillant avec des partenaires pour offrir un réseau de soutien solide. L'association milite également pour des politiques inclusives en faveur de ces jeunes, afin de construire une société plus équitable."
+  },
+  "presidentMessage": {
+    "title": "Mot de Président",
+    "portrait": "Portrait de Hani El Harraq, Président de l'Association",
+    "greeting": "Chers membres et partenaires de l'Association Initiative Al Amal pour l'Intégration Sociale,",
+    "paragraph1": "En cette nouvelle année, je tiens à exprimer ma profonde gratitude envers chacun d'entre vous, depuis la création de notre association en 2018, a contribué à faire de l'Initiative Al Amal un acteur majeur dans le domaine de la protection sociale et de l'insertion professionnelle des jeunes issus des établissements de protection sociale à travers tout le royaume. Notre engagement en faveur de la dignité, du droit à la deuxième chance et de la protection sociale demeure au cœur de notre action.",
+    "paragraph2": "En tant qu'association reconnue nationalement, nous avons consolidé notre impact grâce à des partenariats et des conventions fructueux avec le secteur public et privé. L'année à venir offre de nouvelles opportunités pour renforcer notre mission et étendre notre influence positive.",
+    "paragraph3": "Ensemble, continuons à œuvrer pour offrir un avenir prometteur aux jeunes orphelins, en mettant l'accent sur l'insertion sociale et professionnelle. Je compte sur votre engagement continu et votre soutien indéfectible pour faire de chaque initiative une source de transformation positive dans la vie de ceux que nous servons.",
+    "closing": "Avec mes salutations les plus cordiales,",
+    "signature": "Hani El Harraq",
+    "position": "Président de l'Association"
+  },
+  "cta": {
+    "title": "Rejoignez-nous dans notre mission",
+    "description": "Ensemble, nous pouvons faire la différence dans la vie des jeunes en situation précaire.",
+    "supportUs": "Nous Soutenir"
+  },
+  "history": {
+    "title": "Notre Histoire",
+    "items": {
+      "2018": {
+        "title": "Fondation",
+        "description": "Sous la présidence de M. Hani EL HARRAQ. L'association se consacre à l'accompagnement et à l'encadrement des jeunes en situation précaire, en particulier les pensionnaires issus des établissements de protection sociale (EPS)."
+      },
+      "2019": {
+        "title": "Partenariats",
+        "description": "L'association établit des actions et partenariats avec des acteurs publics et privés, afin de renforcer son action et d'offrir un soutien complet aux jeunes bénéficiaires."
+      },
+      "2020": {
+        "title": "Expansion",
+        "description": "Elle réussit à élargir son réseau de partenaires, à renforcer ses Actions d'accompagnement, et à accroître son impact sur la vie des jeunes en situation précaire."
+      },
+      "2021": {
+        "title": "Programme Forsa wa Taahil",
+        "description": "Lancement du programme \"Forsa wa Taahil\", ciblant différents profils de jeunes, notamment les orphelins bacheliers, les diplômés et ceux en recherche d'insertion professionnelle. Le programme vise à les accompagner vers l'emploi et l'autonomie."
+      },
+      "2022": {
+        "title": "Renforcement",
+        "description": "On continuent de mettre en œuvre le programme d'étendre son champ d'action et de renforcer les collaborations pour atteindre nos objectifs d'intégration sociale et économique."
+      },
+      "2023": {
+        "title": "Réalisations",
+        "description": "L'année 2023 a été une année de progrès et de réalisations pour l'Association Initiative Al Amal. Nous sommes fiers des avancées que nous avons accomplies et déterminés à poursuivre notre engagement envers un avenir meilleur pour tous."
+      },
+      "2024": {
+        "title": "Renforcement",
+        "description": "On continuent de mettre en œuvre le programme d'étendre son champ d'action et de renforcer les collaborations pour atteindre nos objectifs d'intégration sociale et économique."
+      },
+      "2025": {
+        "title": "Réalisations",
+        "description": "L'année 2023 a été une année de progrès et de réalisations pour l'Association Initiative Al Amal. Nous sommes fiers des avancées que nous avons accomplies et déterminés à poursuivre notre engagement envers un avenir meilleur pour tous."
+      }
+    }
+  },
+  "executiveMembers": {
+    "title": "Bureau Exécutif",
+    "loading": "Chargement..."
+  },
+  "impacts": {
+    "title": "Certains de nos impacts",
+    "viewGraph": "Cliquer pour voir le graphique"
+  }
+}
+

@@ -1,0 +1,57 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "whatWeDo": "What We Do",
+    "support": "Support Us",
+    "news": "News",
+    "partners": "Partners"
+  },
+  "buttons": {
+    "readMore": "Read More",
+    "seeMore": "See More",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "back": "Back",
+    "visitWebsite": "Visit Website",
+    "becomePartner": "Become Partner",
+    "makeDonation": "Make Donation",
+    "discoverActions": "Discover our actions",
+    "supportUs": "Support Us"
+  },
+  "footer": {
+    "title": "Al Amal",
+    "description": "Association Initiative Al Amal Pour l'Intégration Sociale, founded in 2018 to support young people in precarious situations towards sustainable social and professional integration.",
+    "quickLinks": "Quick Links",
+    "contact": "Contact",
+    "address": "45 Bd Bir Anzarane",
+    "addressLine2": "1st Floor No. 1, Maarif",
+    "addressLine3": "Casablanca, Morocco",
+    "phone": "+212 6 14 12 84 81",
+    "email": "contact.aiais@gmail.com",
+    "donation": {
+      "title": "Donation",
+      "description": "Would you like to support our actions? Your contribution makes a real difference in the lives of the young people we support.",
+      "ribLabel": "RIB Association Initiative Al Amal :",
+      "makeDonation": "Make an online donation"
+    },
+    "copyright": "© 2025 Association Initiative Al Amal Pour l'Intégration Sociale. All rights reserved."
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "notFound": "Page not found",
+    "beneficiaries": "Beneficiaries",
+    "readMore": "Read More"
+  },
+  "statistics": {
+    "beneficiaries": "BENEFICIARIES",
+    "professionalTrainings": "PROFESSIONAL TRAININGS",
+    "scholarships": "SCHOLARSHIPS",
+    "professionalInsertions": "PROFESSIONAL INSERTIONS"
+  }
+}
+

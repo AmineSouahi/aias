@@ -1,0 +1,83 @@
+{
+  "hero": {
+    "associationName": "Association Initiative Al Amal Pour l'Intégration Sociale",
+    "title": "Nous Soutenir",
+    "description1": "Votre soutien fait la différence dans la vie des jeunes que nous accompagnons.",
+    "description2": "Ensemble, construisons un avenir meilleur pour les jeunes en situation précaire. Chaque contribution compte.",
+    "makeDonation": "Faire un don",
+    "becomePartner": "Devenir Partenaire"
+  },
+  "support": {
+    "title": "Ce que vous pouvez faire pour nous soutenir ?",
+    "subtitle": "Choisissez la manière qui vous ressemble le plus pour soutenir nos actions : don ponctuel, partenariat durable ou engagement à nos côtés.",
+    "donation": {
+      "title": "Faire un don",
+      "description": "Contribuez directement au financement de nos projets et offrez une opportunité concrète à un jeune.",
+      "button": "Faire un don"
+    },
+    "partner": {
+      "title": "Devenir partenaire",
+      "description": "Entreprises, institutions, associations : construisons ensemble des programmes durables et à fort impact social.",
+      "button": "Devenir partenaire"
+    }
+  },
+  "gratitude": {
+    "message": "Nous tenons à exprimer notre profonde gratitude envers chacun de vous pour votre soutien continu envers notre cause. Votre générosité et votre engagement nous permettent d'accomplir notre mission et de changer des vies. Grâce à vous, nous pouvons offrir aux jeunes orphelins l'espoir d'un avenir meilleur à travers l'éducation. Si vous souhaitez continuer à soutenir notre travail, vous pouvez faire un don en ligne ou envisager de devenir un partenaire de notre association. Ensemble, nous pouvons faire une différence significative dans la vie de ces jeunes orphelins. Merci pour votre précieux soutien !"
+  },
+  "projects": {
+    "title": "Projets que vous pouvez financer",
+    "subtitle": "Chaque projet représente une action concrète pour accompagner les jeunes vers l'autonomie. Choisissez celui que vous souhaitez soutenir en priorité.",
+    "collected": "collectés",
+    "target": "Objectif",
+    "reached": "atteint",
+    "supportButton": "Soutenir ce projet"
+  },
+  "donation": {
+    "title": "Donation",
+    "subtitle": "Voulez-vous faire une Donation?",
+    "rib": {
+      "label": "Voici notre RIB:",
+      "value": "011 780 0000772000006736 41"
+    },
+    "online": {
+      "question": "ou tu peux faire un don en ligne?",
+      "button": "Faire un don"
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Une question, une idée, une envie de collaborer ? Envoyez-nous un message, notre équipe vous répondra dans les plus brefs délais.",
+    "info": {
+      "title": "Informations de Contact",
+      "address": "Adresse",
+      "addressValue": "45 Bd Bir Anzarane 1er étage N°1\nMaarif, Casablanca",
+      "phone": "Téléphone",
+      "email": "Email",
+      "socialMedia": "Réseaux Sociaux"
+    },
+    "form": {
+      "title": "Envoyez-nous un message",
+      "name": {
+        "label": "Nom complet",
+        "placeholder": "Votre nom"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "votre@email.com"
+      },
+      "phone": {
+        "label": "Téléphone",
+        "placeholder": "06 12 34 56 78"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Votre message..."
+      },
+      "submit": "Envoyer le message",
+      "sending": "Envoi en cours...",
+      "success": "Votre message a été envoyé avec succès ! Nous vous répondrons bientôt.",
+      "error": "Une erreur est survenue. Veuillez réessayer plus tard."
+    }
+  }
+}
+

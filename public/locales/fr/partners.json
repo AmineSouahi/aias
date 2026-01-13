@@ -1,0 +1,36 @@
+{
+  "hero": {
+    "associationName": "Association Initiative Al Amal Pour l'Intégration Sociale",
+    "title": "Nos Partenaires",
+    "description": "Ensemble, nous construisons un réseau solide de partenaires engagés pour l'intégration sociale et professionnelle des jeunes.",
+    "description2": "Grâce à nos partenariats stratégiques avec des acteurs publics et privés, nous renforçons notre impact et offrons des opportunités durables aux jeunes bénéficiaires.",
+    "becomePartner": "Devenir Partenaire",
+    "ourPrograms": "Nos Programmes"
+  },
+  "carousel": {
+    "title": "Nos Partenaires",
+    "description": "Découvrez les organisations qui nous accompagnent dans notre mission",
+    "previous": "Précédent",
+    "next": "Suivant",
+    "noPartners": "Aucun partenaire pour le moment."
+  },
+  "detail": {
+    "loading": "Chargement...",
+    "notFound": "Partenaire introuvable",
+    "notFoundDescription": "Ce partenaire n'existe pas.",
+    "backToPartners": "Retour aux partenaires",
+    "partnerBadge": "Partenaire",
+    "about": "À propos de",
+    "beneficiaries": "Bénéficiaires",
+    "visitWebsite": "Visiter le site web",
+    "gallery": "Galerie",
+    "previousImage": "Image précédente",
+    "nextImage": "Image suivante"
+  },
+  "requestForm": {
+    "title": "Devenir partenaire",
+    "description": "Intéressé par un partenariat avec nous ? Contactez-nous directement par email pour discuter de vos idées de collaboration.",
+    "contactButton": "Nous contacter par email"
+  }
+}
+

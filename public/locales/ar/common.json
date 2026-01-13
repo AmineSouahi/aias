@@ -1,0 +1,57 @@
+{
+  "nav": {
+    "home": "الرئيسية",
+    "about": "من نحن",
+    "whatWeDo": "ما نقوم به",
+    "support": "ادعمنا",
+    "news": "الأخبار",
+    "partners": "الشركاء"
+  },
+  "buttons": {
+    "readMore": "اقرأ المزيد",
+    "seeMore": "المزيد",
+    "submit": "إرسال",
+    "cancel": "إلغاء",
+    "save": "حفظ",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "back": "رجوع",
+    "visitWebsite": "زيارة الموقع",
+    "becomePartner": "كن شريكاً",
+    "makeDonation": "تبرع",
+    "discoverActions": "اكتشف أنشطتنا",
+    "supportUs": "ادعمنا"
+  },
+  "footer": {
+    "title": "الأمل",
+    "description": "جمعية مبادرة الأمل للاندماج الاجتماعي، تأسست عام 2018 لمرافقة الشباب في وضع هش نحو اندماج اجتماعي ومهني مستدام.",
+    "quickLinks": "روابط سريعة",
+    "contact": "اتصل بنا",
+    "address": "45 شارع بير أنزران",
+    "addressLine2": "الطابق الأول رقم 1، المعاريف",
+    "addressLine3": "الدار البيضاء، المغرب",
+    "phone": "+212 6 14 12 84 81",
+    "email": "contact.aiais@gmail.com",
+    "donation": {
+      "title": "التبرع",
+      "description": "هل ترغب في دعم أنشطتنا؟ مساهمتك تحدث فرقاً حقيقياً في حياة الشباب الذين نرافقهم.",
+      "ribLabel": "رقم الحساب البنكي لجمعية مبادرة الأمل :",
+      "makeDonation": "التبرع عبر الإنترنت"
+    },
+    "copyright": "© 2025 جمعية مبادرة الأمل للاندماج الاجتماعي. جميع الحقوق محفوظة."
+  },
+  "common": {
+    "loading": "جاري التحميل...",
+    "error": "حدث خطأ",
+    "notFound": "الصفحة غير موجودة",
+    "beneficiaries": "المستفيدون",
+    "readMore": "اقرأ المزيد"
+  },
+  "statistics": {
+    "beneficiaries": "المستفيدون",
+    "professionalTrainings": "التدريبات المهنية",
+    "scholarships": "المنح الدراسية",
+    "professionalInsertions": "الإدماجات المهنية"
+  }
+}
+

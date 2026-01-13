@@ -1,0 +1,39 @@
+{
+  "form": {
+    "title": "Make a Donation",
+    "subtitle": "Change the life of a young orphan",
+    "amount": {
+      "title": "Donation Amount",
+      "custom": "Custom Amount"
+    },
+    "personalInfo": {
+      "title": "Your Information",
+      "civility": "Civility",
+      "mr": "Mr.",
+      "mrs": "Mrs.",
+      "fullName": "Full Name",
+      "city": "City",
+      "country": "Country",
+      "phone": "Phone",
+      "email": "Email"
+    },
+    "options": {
+      "title": "Options",
+      "acceptTerms": "I accept the terms and conditions",
+      "newsletter": "I wish to receive the newsletter"
+    },
+    "submit": "Make a Donation",
+    "bankTransfer": {
+      "title": "Bank Transfer",
+      "description": "You can also make a bank transfer directly to our account:",
+      "rib": "RIB: 011 780 0000772000006736 41"
+    }
+  },
+  "success": {
+    "title": "Thank you for your donation!",
+    "message": "Your generosity makes a real difference in the lives of the young people we support.",
+    "backHome": "Back to Home",
+    "makeAnother": "Make Another Donation"
+  }
+}
+

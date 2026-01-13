@@ -1,0 +1,21 @@
+{
+  "hero": {
+    "title": "Welcome",
+    "subtitle": "Association Initiative Al Amal Pour l'Intégration Sociale",
+    "mission": "We support young people and their families for sustainable social integration.",
+    "learnMore": "Learn more",
+    "makeDonation": "Make a Donation"
+  },
+  "news": {
+    "title": "Latest News",
+    "seeMore": "See more news"
+  },
+  "whoWeAre": {
+    "title": "WHO WE ARE",
+    "associationName": "Association Initiative Al Amal Pour L'integration Sociale",
+    "description": "Founded in 2018, is committed to supporting young people in precarious situations, particularly former residents of social protection establishments (EPS), to promote their socio-economic integration.",
+    "learnMore": "Learn more",
+    "imageAlt": "Team of Association Initiative Al Amal"
+  }
+}
+

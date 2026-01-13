@@ -1,0 +1,33 @@
+{
+  "hero": {
+    "associationName": "Association Initiative Al Amal Pour l'Intégration Sociale",
+    "title": "NEWS & EVENTS",
+    "description1": "Stay informed of the latest news, highlights and moments of sharing that punctuate the life of our association.",
+    "description2": "Ceremonies, integration days, partnerships and initiatives in favor of young people: discover everything that makes the heart of the Association Initiative Al Amal beat."
+  },
+  "title": "News & Events",
+  "subtitle": "Follow the highlights of the Association Initiative Al Amal Pour l'Intégration Sociale: integration days, ceremonies, workshops and meetings with our partners.",
+  "seeMore": "See more news",
+  "noNews": "No news found for this period.",
+  "readMore": "Read More",
+  "badge": "News",
+  "filter": {
+    "all": "All years",
+    "year": "Filter by year",
+    "label": "Filter by year:"
+  },
+  "published": "Published on",
+  "detail": {
+    "notFound": "News not found",
+    "notExists": "This news does not exist.",
+    "backToNews": "Back to News",
+    "gallery": "Gallery",
+    "video": "Video",
+    "publicationDate": "Publication date:",
+    "status": "Status:",
+    "published": "Published",
+    "draft": "Draft",
+    "videoNotSupported": "Your browser does not support video playback."
+  }
+}
+

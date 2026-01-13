@@ -1,0 +1,39 @@
+{
+  "form": {
+    "title": "Faire un don",
+    "subtitle": "Changez la vie d'un jeune orphelin",
+    "amount": {
+      "title": "Montant du don",
+      "custom": "Montant personnalisé"
+    },
+    "personalInfo": {
+      "title": "Vos informations",
+      "civility": "Civilité",
+      "mr": "M.",
+      "mrs": "Mme",
+      "fullName": "Nom complet",
+      "city": "Ville",
+      "country": "Pays",
+      "phone": "Téléphone",
+      "email": "Email"
+    },
+    "options": {
+      "title": "Options",
+      "acceptTerms": "J'accepte les conditions générales",
+      "newsletter": "Je souhaite recevoir la newsletter"
+    },
+    "submit": "Faire un don",
+    "bankTransfer": {
+      "title": "Virement bancaire",
+      "description": "Vous pouvez également effectuer un virement bancaire directement sur notre compte :",
+      "rib": "RIB : 011 780 0000772000006736 41"
+    }
+  },
+  "success": {
+    "title": "Merci pour votre don !",
+    "message": "Votre générosité fait une réelle différence dans la vie des jeunes que nous accompagnons.",
+    "backHome": "Retour à l'accueil",
+    "makeAnother": "Faire un autre don"
+  }
+}
+

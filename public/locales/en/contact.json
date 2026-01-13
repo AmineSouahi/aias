@@ -1,0 +1,83 @@
+{
+  "hero": {
+    "associationName": "Association Initiative Al Amal Pour l'Intégration Sociale",
+    "title": "Support Us",
+    "description1": "Your support makes a difference in the lives of the young people we support.",
+    "description2": "Together, let's build a better future for young people in precarious situations. Every contribution counts.",
+    "makeDonation": "Make a Donation",
+    "becomePartner": "Become a Partner"
+  },
+  "support": {
+    "title": "What can you do to support us?",
+    "subtitle": "Choose the way that suits you best to support our actions: one-time donation, lasting partnership or commitment alongside us.",
+    "donation": {
+      "title": "Make a Donation",
+      "description": "Contribute directly to funding our projects and offer a concrete opportunity to a young person.",
+      "button": "Make a Donation"
+    },
+    "partner": {
+      "title": "Become a Partner",
+      "description": "Companies, institutions, associations: let's build together sustainable programs with strong social impact.",
+      "button": "Become a Partner"
+    }
+  },
+  "gratitude": {
+    "message": "We would like to express our deep gratitude to each of you for your continued support of our cause. Your generosity and commitment allow us to accomplish our mission and change lives. Thanks to you, we can offer young orphans hope for a better future through education. If you wish to continue supporting our work, you can make an online donation or consider becoming a partner of our association. Together, we can make a significant difference in the lives of these young orphans. Thank you for your valuable support!"
+  },
+  "projects": {
+    "title": "Projects you can finance",
+    "subtitle": "Each project represents a concrete action to accompany young people towards autonomy. Choose the one you wish to support in priority.",
+    "collected": "collected",
+    "target": "Objective",
+    "reached": "reached",
+    "supportButton": "Support this project"
+  },
+  "donation": {
+    "title": "Donation",
+    "subtitle": "Would you like to make a Donation?",
+    "rib": {
+      "label": "Here is our bank account number:",
+      "value": "011 780 0000772000006736 41"
+    },
+    "online": {
+      "question": "or you can make an online donation?",
+      "button": "Make a Donation"
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "A question, an idea, a desire to collaborate? Send us a message, our team will respond as soon as possible.",
+    "info": {
+      "title": "Contact Information",
+      "address": "Address",
+      "addressValue": "45 Bd Bir Anzarane 1st floor No. 1\nMaarif, Casablanca",
+      "phone": "Phone",
+      "email": "Email",
+      "socialMedia": "Social Media"
+    },
+    "form": {
+      "title": "Send us a message",
+      "name": {
+        "label": "Full Name",
+        "placeholder": "Your name"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "your@email.com"
+      },
+      "phone": {
+        "label": "Phone",
+        "placeholder": "06 12 34 56 78"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Your message..."
+      },
+      "submit": "Send message",
+      "sending": "Sending...",
+      "success": "Your message has been sent successfully! We will respond soon.",
+      "error": "An error occurred. Please try again later."
+    }
+  }
+}
+

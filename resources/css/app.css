@@ -1,0 +1,163 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+@source '../**/*.jsx';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+    
+    /* Couleurs du thème Association Al Amal */
+    --color-primary: #A2140F;
+    --color-secondary: #204F01;
+    --color-primary-light: #c91a14;
+    --color-primary-dark: #7a0f0b;
+    --color-secondary-light: #2d6f02;
+    --color-secondary-dark: #163a01;
+}
+
+/* Styles personnalisés - zoom global (taille du texte) */
+html {
+    font-size: 13px; /* encore plus petit que 16px -> effet de "zoom out" global */
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 13px;
+    }
+}
+
+@media (min-width: 1024px) {
+    html {
+        font-size: 14px; /* desktop un peu plus grand mais toujours réduit vs 16px */
+    }
+}
+
+body {
+    font-family: var(--font-sans);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.animate-slide-down {
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes heroZoom {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.03);
+    }
+}
+
+.hero-zoom {
+    animation: heroZoom 20s ease-out forwards;
+    transform-origin: center;
+}
+
+/* Animation slow motion pour la navbar - transition ultra fluide */
+.navbar-slow-motion {
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform, opacity;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Amélioration de la lisibilité */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+/* Amélioration des liens */
+a {
+    transition: all 0.2s ease;
+}
+
+/* Amélioration des boutons */
+button {
+    transition: all 0.2s ease;
+}
+
+/* Focus visible pour l'accessibilité */
+*:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* RTL Support */
+[dir="rtl"] {
+    direction: rtl;
+}
+
+[dir="ltr"] {
+    direction: ltr;
+}
+
+/* RTL text alignment adjustments */
+[dir="rtl"] .text-left {
+    text-align: right;
+}
+
+[dir="rtl"] .text-right {
+    text-align: left;
+}
+
+/* RTL for carousel - reverse scroll direction */
+[dir="rtl"] .scroll-container {
+    direction: rtl;
+}
+
+/* RTL adjustments for flex containers that need reversal */
+[dir="rtl"] .flex-row-reverse-rtl {
+    flex-direction: row-reverse;
+}
+
+/* RTL for navigation arrows in carousels */
+[dir="rtl"] .carousel-arrow-left {
+    left: auto;
+    right: 1rem;
+}
+
+[dir="rtl"] .carousel-arrow-right {
+    right: auto;
+    left: 1rem;
+}

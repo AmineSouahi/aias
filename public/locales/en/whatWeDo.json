@@ -1,0 +1,120 @@
+{
+  "hero": {
+    "programName": "FORSA & TAAHIL Program",
+    "title": "What We Do",
+    "description1": "An initiative for the socio-economic integration of young orphans and those in precarious situations across Morocco.",
+    "description2": "Since 2021, FORSA & TAAHIL mentors, trains and integrates young people from orphanages, based on three pillars: mentoring, training and integration.",
+    "discoverProgram": "Discover the program",
+    "seeAccompanied": "See the accompanied youth"
+  },
+  "timeline": {
+    "launch": "Launch of the FORSA & TAAHIL program",
+    "launchDescription": "Beginning of structured support for young people from orphanages.",
+    "supervision": "SUPERVISION",
+    "training": "TRAINING",
+    "integration": "INTEGRATION",
+    "accompanied": "Accompanied Youth"
+  },
+  "program": {
+    "subtitle": "Integration Program",
+    "title": "FORSA & TAAHIL Program",
+    "description": "Inspired by the real needs on the ground, the program developed by the Al Amal Association aims at the socio-economic integration of young people from orphanages in Morocco, in partnership with public and private actors."
+  },
+  "presentation": {
+    "title": "Presentation",
+    "description": "Launched in January 2021, the FORSA & TAAHIL program supports young residents and former residents of orphanages through supervision, training and social and professional integration. It focuses on strengthening social autonomy and economic independence, with professional integration as a major pillar."
+  },
+  "problematic": {
+    "title": "Problematic",
+    "description": "Many young orphans, at 18, leave protection structures without sufficient support. Without a diploma or with an interrupted school career, they face great difficulties in entering the labor market and becoming active actors in society."
+  },
+  "objective": {
+    "title": "Objective",
+    "description": "Contribute to the social and professional integration of young orphans and those in precarious situations in Morocco, by offering them structured support based on three essential pillars: Supervision, Training and Integration."
+  },
+  "pillars": {
+    "title": "Three pillars for sustainable integration",
+    "subtitle": "sustainable integration"
+  },
+  "results": {
+    "title": "Results Obtained",
+    "impactLabel": "Measurable Impact"
+  },
+  "beneficiaries": {
+    "title": "The Young People We Support",
+    "subtitle": "we support",
+    "description": "The program targets very different profiles, but with the same objective: to offer each young person a clear path to autonomy, regardless of their starting point."
+  },
+  "analysis": {
+    "title": "Analysis of Our Beneficiaries",
+    "lineChartTitle": "Annual evolution of beneficiaries admitted by category",
+    "pieChartTitle": "Distribution of our target",
+    "beneficiariesLabel": "{{count}} beneficiaries",
+    "year": "Year {{year}}"
+  },
+  "download": {
+    "button": "Download FORSA & TAAHIL program details"
+  },
+  "pillarsData": {
+    "supervision": {
+      "title": "Supervision",
+      "description": "Comprehensive and human support to help each young person build their life project and get out of precariousness.",
+      "details": [
+        "Individual follow-up of young people from orphanages and social protection establishments",
+        "Continuous psychological and social support",
+        "Orientation towards mechanisms adapted to each profile"
+      ]
+    },
+    "training": {
+      "title": "Training",
+      "description": "Training paths adapted to field realities to develop useful and quickly mobilizable skills.",
+      "details": [
+        "Short or qualifying professional training",
+        "Strengthening school skills for high school graduates",
+        "Development of soft skills: self-confidence, autonomy, communication"
+      ]
+    },
+    "integration": {
+      "title": "Integration",
+      "description": "Social and economic integration as the ultimate goal: enabling each young person to become an actor in their future.",
+      "details": [
+        "Connection with a wide network of public and private partners",
+        "Support towards employment, work-study or entrepreneurship",
+        "Follow-up after integration to secure pathways"
+      ]
+    }
+  },
+  "profilesData": {
+    "bacheliers": {
+      "title": "High School Graduates",
+      "tag": "Excellence",
+      "description": "Young orphans who have reached the baccalaureate level benefit from comprehensive support until they obtain their diploma and pursue higher education.",
+      "details": [
+        "Coverage of costs related to schooling and transport.",
+        "Regular pedagogical follow-up and support for success.",
+        "Highlighting academic excellence (mentions, grandes écoles)."
+      ]
+    },
+    "graduates": {
+      "title": "Graduates",
+      "tag": "Integration",
+      "description": "Young orphans who are already graduates are supported towards employment thanks to a network of partners in many sectors.",
+      "details": [
+        "Search for opportunities in companies (internships, jobs).",
+        "Coverage of transport, housing and sometimes food.",
+        "Support until professional situation stabilizes."
+      ]
+    },
+    "neet": {
+      "title": "NEET",
+      "tag": "Second Chance",
+      "description": "The largest category groups together young people without a diploma, without training, without employment, often in a situation of great precariousness.",
+      "details": [
+        "Short-term training leading to a diploma or certificate.",
+        "Enhanced psychological and social support.",
+        "Complete material support (food, transport, housing) until stabilization."
+      ]
+    }
+  }
+}
+

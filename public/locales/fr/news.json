@@ -1,0 +1,33 @@
+{
+  "hero": {
+    "associationName": "Association Initiative Al Amal Pour l'Intégration Sociale",
+    "title": "ACTUALITÉS & ÉVÉNEMENTS",
+    "description1": "Restez informé des dernières nouvelles, temps forts et moments de partage qui rythment la vie de notre association.",
+    "description2": "Cérémonies, journées d'intégration, partenariats et initiatives en faveur des jeunes : découvrez tout ce qui fait battre le cœur de l'Association Initiative Al Amal."
+  },
+  "title": "Actualités & événements",
+  "subtitle": "Suivez les temps forts de l'Association Initiative Al Amal Pour l'Intégration Sociale : journées d'intégration, cérémonies, ateliers et rencontres avec nos partenaires.",
+  "seeMore": "Voir plus d'actualités",
+  "noNews": "Aucune actualité trouvée pour cette période.",
+  "readMore": "En savoir plus",
+  "badge": "Actualité",
+  "filter": {
+    "all": "Toutes les années",
+    "year": "Filtrer par année",
+    "label": "Filtrer par année :"
+  },
+  "published": "Publié le",
+  "detail": {
+    "notFound": "Actualité introuvable",
+    "notExists": "Cette actualité n'existe pas.",
+    "backToNews": "Retour aux actualités",
+    "gallery": "Galerie",
+    "video": "Vidéo",
+    "publicationDate": "Date de publication :",
+    "status": "Statut :",
+    "published": "Publiée",
+    "draft": "Brouillon",
+    "videoNotSupported": "Votre navigateur ne supporte pas la lecture de vidéos."
+  }
+}
+
