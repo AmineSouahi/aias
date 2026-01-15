@@ -16,14 +16,14 @@ function Footer() {
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-12">
                     {/* About Section */}
                     <div className="lg:col-span-1">
-                        <div className="mb-1 flex justify-start items-start -mt-8 md:-mt-10 lg:-mt-16">
+                        <div className="mb-1 flex justify-center md:justify-start items-start -mt-8 md:-mt-10 lg:-mt-16">
                             <img
                                 src="/images/logorgris-removebg-preview.png"
                                 alt={t('footer.title')}
                                 className="h-40 md:h-52 lg:h-56 w-auto object-contain filter drop-shadow-lg max-w-full"
                             />
                         </div>
-                        <p className="text-gray-200 text-sm leading-relaxed mb-4 max-w-md -mt-10">
+                        <p className="text-gray-200 text-sm leading-relaxed mb-4 max-w-md -mt-10 text-center md:text-left">
                             {t('footer.description')}
                         </p>
                         {/* Social Media - Mobile/Tablet View */}

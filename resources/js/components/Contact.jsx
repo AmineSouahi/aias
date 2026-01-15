@@ -188,32 +188,96 @@ function Contact() {
             </section>
 
             {/* Section Donation avec RIB */}
-            <section className="py-16 bg-white">
-                <div className="container mx-auto px-4 max-w-4xl">
-                    <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
-                        <h2 className="text-3xl font-bold text-[#A2140F] mb-6 text-center">
-                            {t('contact:donation.title')}
-                        </h2>
-                        <h3 className="text-2xl font-semibold text-[#204F01] mb-6 text-center">
-                            {t('contact:donation.subtitle')}
-                        </h3>
-                        <div className="bg-gray-50 border-2 border-[#A2140F] rounded-xl p-6 mb-6">
-                            <p className="font-semibold text-gray-800 mb-3 text-center">
-                                {t('contact:donation.rib.label')}
-                            </p>
-                            <p className="text-2xl font-mono font-bold text-[#A2140F] text-center">
-                                {t('contact:donation.rib.value')}
-                            </p>
+            <section className="py-20 bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden">
+                {/* Éléments décoratifs */}
+                <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
+                    <div className="absolute top-20 right-10 w-64 h-64 bg-[#A2140F] rounded-full blur-3xl"></div>
+                    <div className="absolute bottom-20 left-10 w-64 h-64 bg-[#204F01] rounded-full blur-3xl"></div>
+                </div>
+                
+                <div className="container mx-auto px-4 max-w-5xl relative z-10">
+                    <div className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl p-8 md:p-12 border border-gray-100 relative overflow-hidden">
+                        {/* Ligne décorative en haut */}
+                        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#A2140F] via-[#204F01] to-[#A2140F]"></div>
+                        
+                        {/* Header */}
+                        <div className="text-center mb-8">
+                            <h2 className="text-4xl md:text-5xl font-extrabold text-[#A2140F] mb-4">
+                                {t('contact:donation.title')}
+                            </h2>
+                            <div className="w-32 h-1.5 bg-gradient-to-r from-[#A2140F] to-[#204F01] mx-auto rounded-full mb-4"></div>
+                            <h3 className="text-2xl md:text-3xl font-bold text-[#204F01]">
+                                {t('contact:donation.subtitle')}
+                            </h3>
                         </div>
-                        <div className="text-center">
-                            <p className="text-gray-700 mb-6 text-lg">
+
+                        {/* Carte RIB améliorée */}
+                        <div className="relative mb-8">
+                            <div className="bg-gradient-to-br from-gray-50 to-white border-2 border-[#A2140F] rounded-2xl p-6 md:p-8 shadow-xl relative overflow-hidden group hover:shadow-2xl transition-all duration-300">
+                                {/* Effet de brillance au hover */}
+                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                                
+                                {/* Icône banque */}
+                                <div className="flex items-center justify-center mb-4">
+                                    <div className="w-12 h-12 bg-[#A2140F]/10 rounded-xl flex items-center justify-center">
+                                        <svg className="w-6 h-6 text-[#A2140F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                
+                                <p className="font-bold text-gray-800 mb-4 text-center text-lg uppercase tracking-wide">
+                                    {t('contact:donation.rib.label')}
+                                </p>
+                                
+                                {/* RIB avec effet de copie */}
+                                <div className="bg-white rounded-xl p-4 md:p-6 border-2 border-dashed border-[#A2140F]/30 relative group/rib">
+                                    <p className="text-xl md:text-2xl font-mono font-bold text-[#A2140F] text-center break-all leading-relaxed select-all">
+                                        {t('contact:donation.rib.value')}
+                                    </p>
+                                    {/* Bouton de copie (optionnel) */}
+                                    <button
+                                        onClick={() => {
+                                            navigator.clipboard.writeText(t('contact:donation.rib.value'));
+                                            alert('RIB copié dans le presse-papiers !');
+                                        }}
+                                        className="absolute top-2 right-2 p-2 bg-[#A2140F]/10 hover:bg-[#A2140F]/20 rounded-lg opacity-0 group-hover/rib:opacity-100 transition-opacity duration-300"
+                                        title="Copier le RIB"
+                                    >
+                                        <svg className="w-5 h-5 text-[#A2140F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Section don en ligne */}
+                        <div className="text-center relative">
+                            <div className="flex items-center justify-center gap-4 mb-6">
+                                <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
+                                <span className="text-gray-500 font-semibold uppercase text-sm tracking-wider">OU</span>
+                                <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
+                            </div>
+                            
+                            <p className="text-gray-700 mb-8 text-lg md:text-xl font-medium">
                                 {t('contact:donation.online.question')}
                             </p>
+                            
                             <Link
                                 to="/don"
-                                className="inline-block bg-[#A2140F] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#c91a14] transition-colors text-lg"
+                                className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-[#A2140F] to-[#c91a14] text-white px-10 py-4 rounded-2xl font-bold text-lg md:text-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 relative overflow-hidden group"
                             >
-                                {t('contact:donation.online.button')}
+                                <span className="relative z-10 flex items-center gap-3">
+                                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    {t('contact:donation.online.button')}
+                                    <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                    </svg>
+                                </span>
+                                <div className="absolute inset-0 bg-gradient-to-r from-[#c91a14] to-[#A2140F] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             </Link>
                         </div>
                     </div>
