@@ -17,6 +17,7 @@ function Dashboard() {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
     const [activeTab, setActiveTab] = useState('news');
+    const [sidebarOpen, setSidebarOpen] = useState(false);
 
     useEffect(() => {
         checkAuth();
@@ -77,142 +78,147 @@ function Dashboard() {
         );
     }
 
+    const menuItems = [
+        { id: 'news', label: 'Gestion des News' },
+        { id: 'partners', label: 'Gestion des Partenaires' },
+        { id: 'statistics', label: 'Chiffres clés' },
+        { id: 'slides', label: 'Gestion du Carousel' },
+        { id: 'executive-members', label: 'Bureau Exécutif' },
+        { id: 'impacts', label: 'Impacts' },
+        { id: 'support-projects', label: 'Projets à financer' },
+        { id: 'support-goals', label: 'Objectifs de soutien' },
+        { id: 'charts', label: 'Graphiques' },
+        { id: 'contacts', label: 'Messages' },
+    ];
+
     return (
-        <div className="min-h-screen bg-gray-50">
-            {/* Header */}
-            <header className="bg-white shadow-sm border-b border-gray-200">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex justify-between items-center py-4">
-                        <div className="flex items-center">
-                            <h1 className="text-2xl font-bold text-gray-900">
-                                Tableau de bord Admin
-                            </h1>
-                        </div>
-                        <div className="flex items-center space-x-4">
-                            <span className="text-sm text-gray-600">
-                                Bonjour, <span className="font-medium">{user?.name}</span>
-                            </span>
+        <div className="min-h-screen bg-gray-50 flex">
+            {/* Overlay pour mobile */}
+            {sidebarOpen && (
+                <div
+                    className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
+                    onClick={() => setSidebarOpen(false)}
+                ></div>
+            )}
+
+            {/* Sidebar */}
+            <aside
+                className={`fixed inset-y-0 left-0 z-50 w-64 bg-gradient-to-b from-[#204F01] to-[#A2140F] transform transition-transform duration-300 ease-in-out ${
+                    sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
+                }`}
+            >
+                <div className="flex flex-col h-screen overflow-hidden justify-between">
+                    {/* Logo/Header de la sidebar */}
+                    <div className="flex-shrink-0">
+                        <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/20">
+                            <h1 className="text-lg font-bold text-white">Admin Panel</h1>
                             <button
-                                onClick={handleLogout}
-                                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-[#A2140F] hover:bg-[#c91a14] transition-colors"
+                                onClick={() => setSidebarOpen(false)}
+                                className="lg:hidden text-white hover:text-gray-200 transition-colors"
                             >
-                                Déconnexion
+                                <svg
+                                    className="w-5 h-5"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M6 18L18 6M6 6l12 12"
+                                    />
+                                </svg>
                             </button>
                         </div>
+
+                        {/* Menu items */}
+                        <nav className="py-2">
+                            {menuItems.map((item) => (
+                                <button
+                                    key={item.id}
+                                    onClick={() => {
+                                        setActiveTab(item.id);
+                                        setSidebarOpen(false);
+                                    }}
+                                    className={`w-full flex items-center px-4 py-3.5 text-left transition-all duration-200 ${
+                                        activeTab === item.id
+                                            ? 'bg-white/20 text-white border-r-4 border-white'
+                                            : 'text-white/80 hover:bg-white/10 hover:text-white'
+                                    }`}
+                                >
+                                    <span className="font-medium">{item.label}</span>
+                                </button>
+                            ))}
+                        </nav>
+                    </div>
+
+                    {/* User info et déconnexion */}
+                    <div className="px-4 py-2.5 border-t border-white/20 flex-shrink-0">
+                        <button
+                            onClick={handleLogout}
+                            className="w-full flex items-center justify-center px-3 py-2 bg-white/20 hover:bg-white/30 text-white rounded-md font-medium transition-colors text-sm"
+                        >
+                            <svg
+                                className="w-4 h-4 mr-2"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                                />
+                            </svg>
+                            Déconnexion
+                        </button>
                     </div>
                 </div>
-            </header>
+            </aside>
 
-            {/* Navigation Tabs */}
-            <div className="bg-white border-b border-gray-200">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <nav className="flex space-x-8" aria-label="Tabs">
+            {/* Main Content Area */}
+            <div className="flex-1 flex flex-col lg:ml-64">
+                {/* Top Header */}
+                <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-30">
+                    <div className="px-4 sm:px-6 lg:px-8">
+                        <div className="flex justify-between items-center py-4">
+                            <div className="flex items-center">
                         <button
-                            onClick={() => setActiveTab('news')}
-                            className={`${
-                                activeTab === 'news'
-                                    ? 'border-[#A2140F] text-[#A2140F]'
-                                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                            } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors`}
-                        >
-                            Gestion des News
+                                    onClick={() => setSidebarOpen(!sidebarOpen)}
+                                    className="lg:hidden text-gray-600 hover:text-gray-900 mr-4"
+                                >
+                                    <svg
+                                        className="w-6 h-6"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={2}
+                                            d="M4 6h16M4 12h16M4 18h16"
+                                        />
+                                    </svg>
                         </button>
-                        <button
-                            onClick={() => setActiveTab('partners')}
-                            className={`${
-                                activeTab === 'partners'
-                                    ? 'border-[#A2140F] text-[#A2140F]'
-                                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                            } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors`}
-                        >
-                            Gestion des Partenaires
-                        </button>
-                        <button
-                            onClick={() => setActiveTab('statistics')}
-                            className={`${
-                                activeTab === 'statistics'
-                                    ? 'border-[#A2140F] text-[#A2140F]'
-                                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                            } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors`}
-                        >
-                            Chiffres clés
-                        </button>
-                        <button
-                            onClick={() => setActiveTab('slides')}
-                            className={`${
-                                activeTab === 'slides'
-                                    ? 'border-[#A2140F] text-[#A2140F]'
-                                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                            } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors`}
-                        >
-                            Gestion du Carousel
-                        </button>
-                        <button
-                            onClick={() => setActiveTab('executive-members')}
-                            className={`${
-                                activeTab === 'executive-members'
-                                    ? 'border-[#A2140F] text-[#A2140F]'
-                                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                            } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors`}
-                        >
-                            Bureau Exécutif
-                        </button>
-                        <button
-                            onClick={() => setActiveTab('impacts')}
-                            className={`${
-                                activeTab === 'impacts'
-                                    ? 'border-[#A2140F] text-[#A2140F]'
-                                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                            } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors`}
-                        >
-                            Impacts
-                        </button>
-                        <button
-                            onClick={() => setActiveTab('support-projects')}
-                            className={`${
-                                activeTab === 'support-projects'
-                                    ? 'border-[#A2140F] text-[#A2140F]'
-                                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                            } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors`}
-                        >
-                            Projets à financer
-                        </button>
-                        <button
-                            onClick={() => setActiveTab('support-goals')}
-                            className={`${
-                                activeTab === 'support-goals'
-                                    ? 'border-[#A2140F] text-[#A2140F]'
-                                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                            } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors`}
-                        >
-                            Objectifs de soutien
-                        </button>
-                        <button
-                            onClick={() => setActiveTab('charts')}
-                            className={`${
-                                activeTab === 'charts'
-                                    ? 'border-[#A2140F] text-[#A2140F]'
-                                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                            } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors`}
-                        >
-                            Graphiques
-                        </button>
-                        <button
-                            onClick={() => setActiveTab('contacts')}
-                            className={`${
-                                activeTab === 'contacts'
-                                    ? 'border-[#A2140F] text-[#A2140F]'
-                                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                            } whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm transition-colors`}
-                        >
-                            Messages
-                        </button>
-                    </nav>
+                                <h1 className="text-2xl font-bold text-gray-900">
+                                    Tableau de bord Admin
+                                </h1>
+                            </div>
+                            <div className="hidden md:flex items-center space-x-4">
+                                <span className="text-sm text-gray-600">
+                                    Bonjour, <span className="font-medium">{user?.name}</span>
+                                </span>
+                            </div>
                 </div>
             </div>
+                </header>
 
             {/* Main Content */}
-            <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <main className="flex-1 p-4 sm:p-6 lg:p-8 overflow-auto">
+                    <div className="max-w-7xl mx-auto">
                 {activeTab === 'news' && <NewsAdmin />}
                 {activeTab === 'partners' && <PartnersAdmin />}
                 {activeTab === 'statistics' && <StatisticsAdmin />}
@@ -223,7 +229,9 @@ function Dashboard() {
                 {activeTab === 'support-projects' && <SupportProjectsAdmin />}
                 {activeTab === 'support-goals' && <SupportGoalsAdmin />}
                 {activeTab === 'contacts' && <ContactsAdmin />}
+                    </div>
             </main>
+            </div>
         </div>
     );
 }

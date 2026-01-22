@@ -375,6 +375,16 @@ function ChartsSection() {
     const [pieChartData, setPieChartData] = useState([]);
     const [loading, setLoading] = useState(true);
     
+    // Fonction pour traduire les noms des catégories du graphique en camembert
+    const translatePieChartName = (name) => {
+        const nameMap = {
+            'NEET': t('whatWeDo:profilesData.neet.title'),
+            'Diplômés': t('whatWeDo:profilesData.graduates.title'),
+            'Bacheliers': t('whatWeDo:profilesData.bacheliers.title'),
+        };
+        return nameMap[name] || name;
+    };
+    
     // S'assurer que le namespace est chargé
     useEffect(() => {
         const currentLang = i18n.language || 'fr';
@@ -398,6 +408,8 @@ function ChartsSection() {
                         value: parseFloat(item.value),
                     }))
                     .sort((a, b) => a.year - b.year);
+                
+                console.log('Chart data loaded:', formattedLineData);
                 setLineChartData(formattedLineData);
 
                 // Récupérer les données du graphique en camembert
@@ -496,10 +508,11 @@ function ChartsSection() {
                             <h4 className="text-xl md:text-2xl font-bold text-[#204F01] mb-6 text-center">
                                 {t('whatWeDo:analysis.lineChartTitle')}
                             </h4>
-                            <ResponsiveContainer width="100%" height={320}>
+                            <ResponsiveContainer width="100%" height={450}>
                                 <LineChart 
+                                    key={`chart-${lineChartData.map(d => d.year).join('-')}`}
                                     data={lineChartData} 
-                                    margin={{ top: 20, right: 30, left: 10, bottom: 20 }}
+                                    margin={{ top: 20, right: 30, left: 20, bottom: lineChartData.length > 6 ? 80 : 50 }}
                                 >
                                     <defs>
                                         <linearGradient id="lineGradient" x1="0" y1="0" x2="0" y2="1">
@@ -518,13 +531,21 @@ function ChartsSection() {
                                         tick={{ fill: '#6b7280', fontSize: 13, fontWeight: 500 }}
                                         axisLine={{ stroke: '#d1d5db' }}
                                         tickLine={{ stroke: '#d1d5db' }}
+                                        ticks={lineChartData.length > 0 ? lineChartData.map(item => item.year) : []}
+                                        interval={0}
+                                        tickFormatter={(value) => value}
+                                        minTickGap={0}
+                                        angle={lineChartData.length > 6 ? -45 : 0}
+                                        textAnchor={lineChartData.length > 6 ? 'end' : 'middle'}
+                                        height={lineChartData.length > 6 ? 80 : 50}
                                     />
                                     <YAxis 
                                         stroke="#6b7280"
-                                        tick={{ fill: '#6b7280', fontSize: 13, fontWeight: 500 }}
+                                        tick={{ fill: '#6b7280', fontSize: 14, fontWeight: 500 }}
                                         axisLine={{ stroke: '#d1d5db' }}
                                         tickLine={{ stroke: '#d1d5db' }}
-                                        domain={[30, 80]}
+                                        domain={['dataMin - 10', 'dataMax + 10']}
+                                        allowDecimals={false}
                                     />
                                     <Tooltip content={<CustomTooltip />} />
                                     <Line 
@@ -558,37 +579,17 @@ function ChartsSection() {
                         {/* Effet de brillance */}
                         <div className="absolute inset-0 bg-gradient-to-br from-[#FBBF24]/5 via-transparent to-[#204F01]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                         
-                        <div className="relative z-10">
+                        <div className="relative z-10 flex flex-col h-full">
+                            {/* Titre */}
                             <h4 className="text-xl md:text-2xl font-bold text-[#204F01] mb-6 text-center">
                                 {t('whatWeDo:analysis.pieChartTitle')}
                             </h4>
-                            <div className="flex flex-col items-center">
-                                {/* Légende améliorée */}
-                                <div className="flex flex-wrap justify-center gap-6 mb-8">
-                                    {pieChartData.map((entry, index) => (
-                                        <div 
-                                            key={index} 
-                                            className="flex items-center gap-3 bg-gray-50 rounded-full px-4 py-2 hover:bg-gray-100 transition-colors duration-200"
-                                        >
-                                            <div 
-                                                className="w-5 h-5 rounded-full shadow-sm"
-                                                style={{ backgroundColor: entry.color }}
-                                            ></div>
-                                            <span className="text-sm font-semibold text-gray-700">
-                                                {entry.name}
-                                            </span>
-                                            <span 
-                                                className="text-sm font-bold"
-                                                style={{ color: entry.color }}
-                                            >
-                                                {entry.value}%
-                                            </span>
-                                        </div>
-                                    ))}
-                                </div>
-                                
+                            
+                            {/* Contenu principal */}
+                            <div className="flex-1 flex flex-col items-center justify-between">
                                 {/* Graphique */}
-                                <ResponsiveContainer width="100%" height={320}>
+                                <div className="w-full flex-1 flex items-center justify-center mb-6">
+                                    <ResponsiveContainer width="100%" height={280}>
                                     <PieChart>
                                         <defs>
                                             {pieChartData.map((entry, index) => (
@@ -614,8 +615,8 @@ function ChartsSection() {
                                                 const percentage = (percent * 100).toFixed(0);
                                                 return percentage > 10 ? `${name}: ${percentage}%` : '';
                                             }}
-                                            outerRadius={110}
-                                            innerRadius={40}
+                                            outerRadius={100}
+                                            innerRadius={35}
                                             fill="#8884d8"
                                             dataKey="value"
                                             stroke="#fff"
@@ -632,7 +633,32 @@ function ChartsSection() {
                                         </Pie>
                                         <Tooltip content={<CustomPieTooltip />} />
                                     </PieChart>
-                                </ResponsiveContainer>
+                                    </ResponsiveContainer>
+                                </div>
+                                
+                                {/* Légende améliorée */}
+                                <div className="flex flex-wrap justify-center gap-3 w-full">
+                                    {pieChartData.map((entry, index) => (
+                                        <div 
+                                            key={index} 
+                                            className="flex items-center gap-2 bg-gray-50 rounded-lg px-3 py-2 hover:bg-gray-100 transition-colors duration-200 shadow-sm"
+                                        >
+                                            <div 
+                                                className="w-4 h-4 rounded-full flex-shrink-0"
+                                                style={{ backgroundColor: entry.color }}
+                                            ></div>
+                                            <span className="text-sm font-medium text-gray-700 whitespace-nowrap">
+                                                {entry.name}
+                                            </span>
+                                            <span 
+                                                className="text-sm font-bold whitespace-nowrap"
+                                                style={{ color: entry.color }}
+                                            >
+                                                {entry.value}%
+                                            </span>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     </div>

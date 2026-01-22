@@ -20,6 +20,7 @@ import Dashboard from './components/Dashboard';
 import ProtectedRoute from './components/ProtectedRoute';
 import DonForm from './components/DonForm';
 import DonSuccess from './components/DonSuccess';
+import Chatbot from './components/Chatbot';
 
 const container = document.getElementById('app');
 
@@ -62,6 +63,7 @@ if (container) {
                                 </Routes>
                             </main>
                             <Footer />
+                            <Chatbot />
                         </div>
                     } />
                 </Routes>
