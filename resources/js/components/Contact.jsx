@@ -48,7 +48,7 @@ function Contact() {
     return (
         <>
             {/* Hero Section avec image de don */}
-            <section className="relative mt-16 md:mt-20 h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden">
+            <section className="relative h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden">
                 <div className="relative h-full">
                     <div
                         className="absolute inset-0 bg-cover bg-center"

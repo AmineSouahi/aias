@@ -15,6 +15,7 @@ import NewsDetail from './components/NewsDetail';
 import Contact from './components/Contact';
 import Partenaires from './components/Partenaires';
 import PartnerDetail from './components/PartnerDetail';
+import SupportProjectDetail from './components/SupportProjectDetail';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -57,6 +58,7 @@ if (container) {
                                     <Route path="/news/:id" element={<NewsDetail />} />
                                     <Route path="/partenaires" element={<Partenaires />} />
                                     <Route path="/partenaires/:id" element={<PartnerDetail />} />
+                                    <Route path="/projets/:id" element={<SupportProjectDetail />} />
                                     <Route path="/don" element={<DonForm />} />
                                     <Route path="/don/success" element={<DonSuccess />} />
                                     <Route path="*" element={<Navigate to="/" replace />} />

@@ -410,11 +410,17 @@ function ExecutiveMembersSection() {
                 <h2 className="text-3xl md:text-4xl font-bold text-[#204F01] mb-12 text-center">
                     {t('about:executiveMembers.title')}
                 </h2>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div className={`${
+                    members.length === 1 
+                        ? 'flex justify-center' 
+                        : 'grid md:grid-cols-2 lg:grid-cols-3'
+                } gap-8 max-w-6xl mx-auto`}>
                     {members.map((member) => (
                         <div
                             key={member.id}
-                            className="bg-white rounded-lg shadow-md p-6 text-center border border-gray-200"
+                            className={`bg-white rounded-lg shadow-md p-6 text-center border border-gray-200 ${
+                                members.length === 1 ? 'w-full max-w-sm' : ''
+                            }`}
                         >
                             <div className="w-32 h-32 mx-auto mb-4 bg-gray-200 rounded-full flex items-center justify-center overflow-hidden">
                                 {member.photo ? (
@@ -451,7 +457,7 @@ function About() {
     return (
         <>
             {/* Hero Section avec image d'équipe */}
-            <section id="about" className="relative mt-16 md:mt-20 h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden">
+            <section id="about" className="relative h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden">
                 <div className="relative h-full">
                     <div
                         className="absolute inset-0 bg-cover bg-center"

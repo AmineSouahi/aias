@@ -14,6 +14,8 @@ class SupportProject extends Model
         'description',
         'description_fr', 'description_ar', 'description_en',
         'image',
+        'video',
+        'photos',
         'target_amount',
         'current_amount',
         'category',
@@ -32,5 +34,6 @@ class SupportProject extends Model
         'order' => 'integer',
         'is_highlighted' => 'boolean',
         'is_active' => 'boolean',
+        'photos' => 'array',
     ];
 }

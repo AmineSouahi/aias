@@ -30,7 +30,21 @@
     "collected": "collectés",
     "target": "Objectif",
     "reached": "atteint",
-    "supportButton": "Soutenir ce projet"
+    "supportButton": "Soutenir ce projet",
+    "viewDetails": "En savoir plus",
+    "backToProjects": "Retour aux projets"
+  },
+  "projectDetail": {
+    "loading": "Chargement du projet…",
+    "notFound": "Projet introuvable",
+    "backToProjects": "Retour aux projets",
+    "target": "Objectif",
+    "collected": "Collecté",
+    "reached": "atteint",
+    "supportButton": "Soutenir ce projet",
+    "video": "Vidéo",
+    "photos": "Photos",
+    "description": "Description"
   },
   "donation": {
     "title": "Donation",

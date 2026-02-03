@@ -7,6 +7,8 @@ function Statistics() {
     const [statistics, setStatistics] = useState([]);
     const [loading, setLoading] = useState(true);
     const [visibleIndices, setVisibleIndices] = useState(new Set());
+    const [animatedValues, setAnimatedValues] = useState({});
+    const hasAnimatedRef = useRef(new Set());
     const sectionRef = useRef(null);
     
     // Fonction pour traduire le titre de la statistique
@@ -42,7 +44,7 @@ function Statistics() {
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        const index = parseInt(entry.target.dataset.index);
+                        const index = parseInt(entry.target.dataset.index, 10);
                         setVisibleIndices((prev) => new Set([...prev, index]));
                     }
                 });
@@ -57,6 +59,29 @@ function Statistics() {
             elements.forEach((el) => observer.unobserve(el));
         };
     }, [statistics]);
+
+    // Animation comptage 0 → valeur quand la stat devient visible
+    useEffect(() => {
+        visibleIndices.forEach((index) => {
+            if (hasAnimatedRef.current.has(index)) return;
+            const stat = statistics[index];
+            if (!stat) return;
+            const target = parseInt(String(stat.value).replace(/\D/g, ''), 10) || 0;
+            hasAnimatedRef.current.add(index);
+            const duration = 1600; // ms
+            const start = Date.now();
+            const step = () => {
+                const elapsed = Date.now() - start;
+                const progress = Math.min(1, elapsed / duration);
+                const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+                const current = Math.floor(eased * target);
+                setAnimatedValues((prev) => ({ ...prev, [index]: current }));
+                if (progress < 1) requestAnimationFrame(step);
+                else setAnimatedValues((prev) => ({ ...prev, [index]: target }));
+            };
+            requestAnimationFrame(step);
+        });
+    }, [visibleIndices, statistics]);
 
     // Fonction pour obtenir l'icône SVG selon le nom
     const getIcon = (iconName) => {
@@ -220,13 +245,15 @@ function Statistics() {
                                     />
                                 </svg>
                                 
-                                {/* Nombre au centre avec animation */}
+                                {/* Nombre au centre — animation 0 → valeur */}
                                 <div className="absolute inset-0 flex items-center justify-center z-20">
                                     <span
-                                        className="text-4xl md:text-5xl font-extrabold tracking-tight group-hover:scale-110 transition-transform duration-300"
+                                        className="text-4xl md:text-5xl font-extrabold tracking-tight group-hover:scale-110 transition-transform duration-300 tabular-nums"
                                         style={{ color: numberColors[index] }}
                                     >
-                                        {stat.value}
+                                        {isVisible
+                                            ? (animatedValues[index] ?? 0)
+                                            : 0}
                                     </span>
                                 </div>
                             </div>

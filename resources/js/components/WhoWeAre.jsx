@@ -6,7 +6,7 @@ function WhoWeAre() {
     const { t } = useTranslation(['common', 'home']);
     
     return (
-        <section className="bg-white py-16">
+        <section id="about" className="bg-white py-16">
             <div className="max-w-4xl mx-auto text-center mb-10 px-4">
                 <h2 className="text-3xl md:text-4xl font-bold text-[#204F01] mb-4">
                     {t('home:whoWeAre.title')}

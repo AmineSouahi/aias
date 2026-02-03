@@ -733,7 +733,7 @@ function WhatWeDo() {
     return (
         <>
             {/* Hero amélioré */}
-            <section className="relative mt-16 md:mt-20 overflow-hidden">
+            <section className="relative overflow-hidden">
                 <div className="relative h-[420px] md:h-[520px] lg:h-[620px]">
                     <div
                         className="absolute inset-0 bg-cover bg-center hero-zoom"
@@ -851,13 +851,10 @@ function WhatWeDo() {
                                     
                                     <div className="relative z-10 p-8 md:p-10">
                                         <div className="flex items-start gap-6">
-                                            {/* Icône circulaire avec gradient et animation */}
-                                            <div className="flex-shrink-0 relative">
-                                                <div className="absolute inset-0 bg-gradient-to-br from-[#A2140F] to-[#c91a14] rounded-2xl blur-lg opacity-50 group-hover:opacity-75 group-hover:scale-110 transition-all duration-300"></div>
-                                                <div className="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-[#A2140F] to-[#c91a14] flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                                                    <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                                        <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
-                                                    </svg>
+                                            {/* Carré rouge, cercle blanc, « i » rouge */}
+                                            <div className="flex-shrink-0 w-20 h-20 rounded-2xl bg-[#A2140F] flex items-center justify-center">
+                                                <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center">
+                                                    <span className="text-[#A2140F] font-bold text-xl leading-none" style={{ fontFamily: 'ui-sans-serif, sans-serif' }}>i</span>
                                                 </div>
                                             </div>
                                             <div className="flex-1">

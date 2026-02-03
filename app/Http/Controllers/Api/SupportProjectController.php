@@ -77,6 +77,8 @@ class SupportProjectController extends Controller
             'category' => $project->$categoryColumn ?? $project->category_fr ?? $project->category,
             'cta_label' => $project->$ctaLabelColumn ?? $project->cta_label_fr ?? $project->cta_label,
             'image' => $project->image,
+            'video' => $project->video ?? null,
+            'photos' => $project->photos ?? [],
             'target_amount' => $project->target_amount,
             'current_amount' => $project->current_amount,
             'cta_link' => $project->cta_link,
@@ -120,6 +122,10 @@ class SupportProjectController extends Controller
             'description_ar' => 'nullable|string',
             'description_en' => 'nullable|string',
             'image' => 'nullable|image|max:4096', // 4MB max
+            'video' => 'nullable|string|max:500',
+            'photos' => 'nullable|array',
+            'photos.*' => 'nullable|image|max:4096',
+            'existing_photos' => 'nullable|string',
             'target_amount' => 'required|numeric|min:0',
             'current_amount' => 'nullable|numeric|min:0',
             'category' => 'nullable|string|max:255',
@@ -175,9 +181,20 @@ class SupportProjectController extends Controller
         // Gestion de l'upload d'image
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('projects/images', 'public');
-            // Utiliser un chemin relatif pour le frontend
             $data['image'] = '/storage/' . $path;
         }
+
+        $data['video'] = $request->input('video') ?: null;
+        $photoPaths = [];
+        if ($request->hasFile('photos')) {
+            foreach ($request->file('photos') as $file) {
+                if ($file->isValid()) {
+                    $path = $file->store('projects/photos', 'public');
+                    $photoPaths[] = '/storage/' . $path;
+                }
+            }
+        }
+        $data['photos'] = $photoPaths;
 
         $project = SupportProject::create($data);
 
@@ -206,6 +223,10 @@ class SupportProjectController extends Controller
             'description_ar' => 'nullable|string',
             'description_en' => 'nullable|string',
             'image' => 'nullable|image|max:4096', // 4MB max
+            'video' => 'nullable|string|max:500',
+            'photos' => 'nullable|array',
+            'photos.*' => 'nullable|image|max:4096',
+            'existing_photos' => 'nullable|string',
             'target_amount' => 'sometimes|numeric|min:0',
             'current_amount' => 'nullable|numeric|min:0',
             'category' => 'nullable|string|max:255',
@@ -271,10 +292,35 @@ class SupportProjectController extends Controller
             // Utiliser un chemin relatif pour le frontend
             $data['image'] = '/storage/' . $path;
         } else {
-            // Si aucune nouvelle image n'est fournie, conserver l'image existante
-            // Ne pas modifier le champ image si aucun fichier n'est uploadé
             unset($data['image']);
         }
+
+        $data['video'] = $request->input('video') ?: $project->video;
+        if ($request->has('existing_photos')) {
+            $existing = $request->input('existing_photos');
+            $keepPaths = is_string($existing) ? (json_decode($existing, true) ?: []) : (array) $existing;
+        } else {
+            $keepPaths = $project->photos ?? [];
+        }
+        $newPaths = [];
+        if ($request->hasFile('photos')) {
+            foreach ($request->file('photos') as $file) {
+                if ($file->isValid()) {
+                    $path = $file->store('projects/photos', 'public');
+                    $newPaths[] = '/storage/' . $path;
+                }
+            }
+        }
+        $allPaths = array_values(array_unique(array_merge($keepPaths, $newPaths)));
+        foreach ($project->photos ?? [] as $old) {
+            if (!in_array($old, $allPaths, true) && strpos($old ?? '', '/storage/') === 0) {
+                $rel = str_replace('/storage/', '', $old);
+                if (Storage::disk('public')->exists($rel)) {
+                    Storage::disk('public')->delete($rel);
+                }
+            }
+        }
+        $data['photos'] = $allPaths;
 
         $project->update($data);
 

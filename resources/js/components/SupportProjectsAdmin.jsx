@@ -6,7 +6,14 @@ function SupportProjectsAdmin() {
     const [loading, setLoading] = useState(true);
     const [saving, setSaving] = useState(false);
     const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
     const [editingId, setEditingId] = useState(null);
+
+    const existingImagePreview = (path) => {
+        if (!path) return '';
+        if (path.startsWith('http://') || path.startsWith('https://')) return path;
+        return path.startsWith('/') ? window.location.origin + path : window.location.origin + '/' + path;
+    };
 
     const emptyForm = {
         title: '',
@@ -35,9 +42,14 @@ function SupportProjectsAdmin() {
         order: 0,
         is_highlighted: false,
         is_active: true,
-        image: null, // Pour le fichier
-        imagePreview: '', // Pour l'aperçu
-        existingImage: '', // Pour l'image existante lors de l'édition
+        image: null,
+        imagePreview: '',
+        existingImage: '',
+        video: '',
+        existingVideo: '',
+        photos: [],
+        photosPreview: [],
+        existingPhotos: [],
     };
 
     const [form, setForm] = useState(emptyForm);
@@ -63,20 +75,44 @@ function SupportProjectsAdmin() {
 
     const handleChange = (e) => {
         const { name, value, type, checked, files } = e.target;
-        
-        if (type === 'file' && files && files[0]) {
-            const file = files[0];
-            setForm((prev) => ({
-                ...prev,
-                image: file,
-                imagePreview: URL.createObjectURL(file),
-            }));
+        if (type === 'file' && files) {
+            if (name === 'image' && files[0]) {
+                setForm((prev) => ({
+                    ...prev,
+                    image: files[0],
+                    imagePreview: URL.createObjectURL(files[0]),
+                }));
+            } else if (name === 'photos' && files.length) {
+                const newFiles = Array.from(files);
+                const newPreviews = newFiles.map((f) => URL.createObjectURL(f));
+                setForm((prev) => ({
+                    ...prev,
+                    photos: [...(prev.photos || []), ...newFiles],
+                    photosPreview: [...(prev.photosPreview || []), ...newPreviews],
+                }));
+            }
         } else {
-            setForm((prev) => ({
-                ...prev,
-                [name]: type === 'checkbox' ? checked : value,
-            }));
+            setForm((prev) => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
         }
+    };
+
+    const removePhoto = (index) => {
+        setForm((prev) => {
+            const p = [...(prev.photos || [])];
+            const prevs = [...(prev.photosPreview || [])];
+            if (prevs[index]) URL.revokeObjectURL(prevs[index]);
+            p.splice(index, 1);
+            prevs.splice(index, 1);
+            return { ...prev, photos: p, photosPreview: prevs };
+        });
+    };
+
+    const removeExistingPhoto = (index) => {
+        setForm((prev) => {
+            const p = [...(prev.existingPhotos || [])];
+            p.splice(index, 1);
+            return { ...prev, existingPhotos: p };
+        });
     };
 
     const handleEdit = (project) => {
@@ -111,15 +147,18 @@ function SupportProjectsAdmin() {
             image: null,
             imagePreview: '',
             existingImage: project.image || '',
+            video: project.video || '',
+            existingVideo: project.video || '',
+            photos: [],
+            photosPreview: [],
+            existingPhotos: Array.isArray(project.photos) ? [...project.photos] : [],
         });
     };
 
     const handleCancel = () => {
         setEditingId(null);
-        // Nettoyer l'aperçu d'image si nécessaire
-        if (form.imagePreview) {
-            URL.revokeObjectURL(form.imagePreview);
-        }
+        if (form.imagePreview) URL.revokeObjectURL(form.imagePreview);
+        (form.photosPreview || []).forEach((u) => URL.revokeObjectURL(u));
         setForm(emptyForm);
     };
 
@@ -157,10 +196,12 @@ function SupportProjectsAdmin() {
             formData.append('is_highlighted', form.is_highlighted ? 1 : 0);
             formData.append('is_active', form.is_active ? 1 : 0);
 
-            // Ajouter l'image seulement si un nouveau fichier est sélectionné
-            if (form.image) {
-                formData.append('image', form.image);
+            if (form.image) formData.append('image', form.image);
+            formData.append('video', (form.video || '').trim());
+            if (editingId) {
+                formData.append('existing_photos', JSON.stringify(Array.isArray(form.existingPhotos) ? form.existingPhotos : []));
             }
+            (form.photos || []).forEach((file) => formData.append('photos[]', file));
 
             const config = {
                 headers: {
@@ -176,9 +217,11 @@ function SupportProjectsAdmin() {
 
             await loadProjects();
             handleCancel();
+            setSuccess(editingId ? 'Projet mis à jour.' : 'Projet créé.');
+            setTimeout(() => setSuccess(''), 4000);
         } catch (e) {
             console.error('Erreur lors de la sauvegarde:', e);
-            setError("Erreur lors de l'enregistrement du projet.");
+            setError(e.response?.data?.message || "Erreur lors de l'enregistrement du projet.");
         } finally {
             setSaving(false);
         }
@@ -186,12 +229,16 @@ function SupportProjectsAdmin() {
 
     const handleDelete = async (id) => {
         if (!window.confirm('Supprimer ce projet ?')) return;
+        setError('');
         try {
             await axios.delete(`/support-projects/${id}`);
             await loadProjects();
+            if (editingId === id) handleCancel();
+            setSuccess('Projet supprimé.');
+            setTimeout(() => setSuccess(''), 4000);
         } catch (e) {
             console.error('Erreur lors de la suppression:', e);
-            setError('Erreur lors de la suppression.');
+            setError(e.response?.data?.message || 'Erreur lors de la suppression.');
         }
     };
 
@@ -210,8 +257,14 @@ function SupportProjectsAdmin() {
             <h2 className="text-2xl font-bold text-[#204F01] mb-6">Projets à financer</h2>
 
             {error && (
-                <div className="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
-                    {error}
+                <div className="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded flex justify-between items-start gap-2">
+                    <span>{error}</span>
+                    <button type="button" onClick={() => setError('')} className="text-red-600 hover:text-red-800 font-bold" aria-label="Fermer">×</button>
+                </div>
+            )}
+            {success && (
+                <div className="mb-4 p-4 bg-green-100 border border-green-400 text-green-800 rounded">
+                    {success}
                 </div>
             )}
 
@@ -448,7 +501,7 @@ function SupportProjectsAdmin() {
                         />
                     </div>
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Image</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">Image principale</label>
                         <input
                             type="file"
                             name="image"
@@ -459,14 +512,62 @@ function SupportProjectsAdmin() {
                         {(form.imagePreview || form.existingImage) && (
                             <div className="mt-2">
                                 <img
-                                    src={form.imagePreview || form.existingImage}
+                                    src={form.imagePreview || existingImagePreview(form.existingImage)}
                                     alt="Aperçu"
                                     className="w-32 h-32 object-cover rounded-md border border-gray-300"
+                                    onError={(e) => { e.target.style.display = 'none'; }}
                                 />
                             </div>
                         )}
-                        <p className="mt-1 text-xs text-gray-500">Format accepté: JPG, PNG, GIF (max 4MB)</p>
+                        <p className="mt-1 text-xs text-gray-500">JPG, PNG, GIF (max 4MB)</p>
                     </div>
+                </div>
+
+                <div className="mb-4">
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Vidéo (URL YouTube ou Vimeo)</label>
+                    <input
+                        type="url"
+                        name="video"
+                        value={form.video || ''}
+                        onChange={handleChange}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#A2140F]"
+                        placeholder="https://www.youtube.com/watch?v=... ou https://vimeo.com/..."
+                    />
+                </div>
+
+                <div className="mb-4">
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Photos supplémentaires</label>
+                    <input
+                        type="file"
+                        name="photos"
+                        accept="image/*"
+                        multiple
+                        onChange={handleChange}
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#A2140F]"
+                    />
+                    <p className="mt-1 text-xs text-gray-500">Plusieurs images possibles (max 4MB chacune)</p>
+                    {(form.existingPhotos || []).length > 0 && (
+                        <div className="mt-3 flex flex-wrap gap-2">
+                            <span className="text-xs font-medium text-gray-600 w-full">Photos existantes :</span>
+                            {form.existingPhotos.map((path, i) => (
+                                <div key={`ex-${i}`} className="relative group">
+                                    <img src={existingImagePreview(path)} alt="" className="w-20 h-20 object-cover rounded border" onError={(e) => { e.target.style.display = 'none'; }} />
+                                    <button type="button" onClick={() => removeExistingPhoto(i)} className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white rounded-full text-xs leading-none" aria-label="Supprimer">×</button>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                    {(form.photosPreview || []).length > 0 && (
+                        <div className="mt-3 flex flex-wrap gap-2">
+                            <span className="text-xs font-medium text-gray-600 w-full">Nouvelles photos :</span>
+                            {form.photosPreview.map((url, i) => (
+                                <div key={`new-${i}`} className="relative group">
+                                    <img src={url} alt="" className="w-20 h-20 object-cover rounded border" />
+                                    <button type="button" onClick={() => removePhoto(i)} className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white rounded-full text-xs leading-none" aria-label="Supprimer">×</button>
+                                </div>
+                            ))}
+                        </div>
+                    )}
                 </div>
 
                 <div className="flex items-center space-x-6 mb-4">

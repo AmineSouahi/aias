@@ -30,7 +30,21 @@
     "collected": "تم جمعها",
     "target": "الهدف",
     "reached": "تم الوصول إليه",
-    "supportButton": "دعم هذا المشروع"
+    "supportButton": "دعم هذا المشروع",
+    "viewDetails": "اعرف المزيد",
+    "backToProjects": "العودة إلى المشاريع"
+  },
+  "projectDetail": {
+    "loading": "جاري تحميل المشروع…",
+    "notFound": "المشروع غير موجود",
+    "backToProjects": "العودة إلى المشاريع",
+    "target": "الهدف",
+    "collected": "المُجمَّع",
+    "reached": "تم الوصول إليه",
+    "supportButton": "دعم هذا المشروع",
+    "video": "فيديو",
+    "photos": "صور",
+    "description": "الوصف"
   },
   "donation": {
     "title": "التبرع",
