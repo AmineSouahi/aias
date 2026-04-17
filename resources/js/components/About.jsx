@@ -462,7 +462,7 @@ function About() {
                     <div
                         className="absolute inset-0 bg-cover bg-center"
                         style={{
-                            backgroundImage: `url(/images/team_2025.webp)`,
+                            backgroundImage: `url(/images/equipe.jpeg)`,
                         }}
                     >
                         <div className="absolute inset-0 bg-gradient-to-r from-[#A2140F]/95 via-[#A2140F]/85 to-[#204F01]/85" />

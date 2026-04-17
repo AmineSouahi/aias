@@ -138,58 +138,55 @@ function News({ limit = null, showMoreButton = false }) {
                     <>
                         <div className="grid md:grid-cols-3 gap-8">
                             {(limit ? filteredNews.slice(0, limit) : filteredNews).map((item) => (
-                            <article
+                            <Link
                                 key={item.id}
-                                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow"
+                                to={`/news/${item.id}`}
+                                className="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer group"
                             >
-                                <div className="relative h-48 overflow-hidden">
-                                    <img
-                                        src={item.image}
-                                        alt={item.title}
-                                        className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
-                                    />
-                                    <div className="absolute top-4 left-4 bg-[#A2140F] text-white px-3 py-1 rounded text-sm font-semibold">
-                                        {t('news:badge')}
+                                <article className="h-full">
+                                    <div className="relative h-56 md:h-64 overflow-hidden bg-gray-100">
+                                        <img
+                                            src={item.image}
+                                            alt={item.title}
+                                            className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                                        />
                                     </div>
-                                </div>
-                                <div className="p-6">
-                                    <p className="text-gray-500 text-sm mb-2">
-                                        {t('news:published')} {new Date(item.published_at || item.date).toLocaleDateString(
-                                            i18n.language === 'ar' ? 'ar-MA' : i18n.language === 'en' ? 'en-US' : 'fr-FR',
-                                            {
-                                                year: 'numeric',
-                                                month: 'long',
-                                                day: 'numeric',
-                                            }
-                                        )}
-                                    </p>
-                                    <h3 className="text-xl font-bold text-[#204F01] mb-3 line-clamp-2">
-                                        {item.title}
-                                    </h3>
-                                    <p className="text-gray-600 mb-4 line-clamp-3">
-                                        {item.excerpt}
-                                    </p>
-                                    <Link
-                                        to={`/news/${item.id}`}
-                                        className="text-[#A2140F] font-semibold hover:text-[#c91a14] transition-colors inline-flex items-center"
-                                    >
-                                        {t('news:readMore')}
-                                        <svg
-                                            className="w-4 h-4 ml-2"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            viewBox="0 0 24 24"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth={2}
-                                                d="M9 5l7 7-7 7"
-                                            />
-                                        </svg>
-                                    </Link>
-                                </div>
-                            </article>
+                                    <div className="p-6">
+                                        <p className="text-gray-500 text-sm mb-2">
+                                            {t('news:published')} {new Date(item.published_at || item.date).toLocaleDateString(
+                                                i18n.language === 'ar' ? 'ar-MA' : i18n.language === 'en' ? 'en-US' : 'fr-FR',
+                                                {
+                                                    year: 'numeric',
+                                                    month: 'long',
+                                                    day: 'numeric',
+                                                }
+                                            )}
+                                        </p>
+                                        <h3 className="text-xl font-bold text-[#204F01] mb-3 line-clamp-2 group-hover:text-[#A2140F] transition-colors">
+                                            {item.title}
+                                        </h3>
+                                        <p className="text-gray-600 mb-4 line-clamp-3">
+                                            {item.excerpt}
+                                        </p>
+                                        <div className="text-[#A2140F] font-semibold group-hover:text-[#c91a14] transition-colors inline-flex items-center">
+                                            {t('news:readMore')}
+                                            <svg
+                                                className="w-4 h-4 ml-2"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                viewBox="0 0 24 24"
+                                            >
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    strokeWidth={2}
+                                                    d="M9 5l7 7-7 7"
+                                                />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </article>
+                            </Link>
                         ))}
                         </div>
                         {showMoreButton && limit && filteredNews.length > limit && (

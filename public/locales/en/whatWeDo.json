@@ -53,7 +53,20 @@
     "year": "Year {{year}}"
   },
   "download": {
-    "button": "Download FORSA & TAAHIL program details"
+    "button": "Download FORSA & TAAHIL program details",
+    "activityButton": "Download activity report",
+    "documents": [
+      {
+        "button": "Download FORSA & TAAHIL program details",
+        "href": "/documents/LAssociation-Initiative-Al-Amal-pour-lIntegration-Sociale.pdf",
+        "fileName": "forsa-taahil-details.pdf"
+      },
+      {
+        "button": "Download activity report",
+        "href": "/documents/Rapport d'activité.pdf",
+        "fileName": "activity-report.pdf"
+      }
+    ]
   },
   "pillarsData": {
     "supervision": {

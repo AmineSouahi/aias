@@ -81,7 +81,7 @@ function Header() {
     useEffect(() => {
         const img = new Image();
         img.onerror = () => setLogoError(true);
-        img.src = '/images/aiais.png    ';
+        img.src = 'https://aiais.org/public/images/aiais.png';
     }, []);
 
     // Vérifier l'authentification
@@ -122,7 +122,7 @@ function Header() {
                             ) : (
                                 <div className="relative">
                                     <img
-                                        src={currentLanguage === 'en' ? '/images/aiais2.png' : '/images/aiais.png'}
+                                        src={currentLanguage === 'en' ? 'https://aiais.org/public/images/aiais.png' : 'https://aiais.org/public/images/aiais.png'}
                                         alt="Association Initiative Al Amal Pour l'Intégration Sociale"
                                         className="h-12 w-auto object-contain max-w-[180px] transition-all duration-300 group-hover:scale-105"
                                         loading="eager"
@@ -148,7 +148,7 @@ function Header() {
                                     ) : (
                                         <div className="relative flex items-center" style={{ height: '80px', width: 'auto', maxWidth: '200px' }}>
                                             <img
-                                                src={currentLanguage === 'en' ? '/images/aiais2.png' : '/images/aiais.png'}
+                                                src={currentLanguage === 'en' ? 'https://aiais.org/public/images/aiais.png' : 'https://aiais.org/public/images/aiais.png'}
                                                 alt="Association Initiative Al Amal Pour l'Intégration Sociale"
                                                 className="h-20 max-h-20 w-auto object-contain transition-all duration-300 group-hover:scale-105"
                                                 loading="eager"
@@ -400,7 +400,7 @@ function Header() {
                                         </div>
                                     ) : (
                                         <img
-                                            src={currentLanguage === 'en' ? '/images/aiais2.png' : '/images/aiais.png'}
+                                            src={currentLanguage === 'en' ? 'https://aiais.org/public/images/aiais.png' : 'https://aiais.org/public/images/aiais.png'}
                                             alt="Association Initiative Al Amal"
                                             className="h-14 w-auto object-contain"
                                             loading="eager"

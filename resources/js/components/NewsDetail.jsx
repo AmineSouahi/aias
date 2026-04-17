@@ -72,20 +72,20 @@ function NewsDetail() {
 
     return (
         <>
-            {/* Hero Section */}
-            <section className="relative mt-16 md:mt-20 h-[400px] md:h-[500px] overflow-hidden">
+            {/* Hero Section - Positionné au maximum en haut */}
+            <section className="relative h-[450px] md:h-[550px] lg:h-[600px] overflow-hidden" style={{ marginTop: 0, paddingTop: 0, top: 0 }}>
                 <div className="relative h-full">
                     <div
                         className="absolute inset-0 bg-cover bg-center"
                         style={
                             news.image
-                                ? { backgroundImage: `url(${news.image})` }
-                                : { backgroundColor: '#A2140F' }
+                                ? { backgroundImage: `url(${news.image})`, top: 0 }
+                                : { backgroundColor: '#A2140F', top: 0 }
                         }
                     >
-                        <div className="absolute inset-0 bg-gradient-to-r from-[#A2140F]/95 via-[#A2140F]/85 to-[#204F01]/85" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-[#A2140F]/95 via-[#A2140F]/85 to-[#204F01]/85" style={{ top: 0 }} />
                     </div>
-                    <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
+                    <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center pt-8 md:pt-12 lg:pt-16">
                         <div className="max-w-3xl text-white">
                             <p className="mb-2 text-sm md:text-base text-white/90">
                                 {news.published_at
@@ -99,7 +99,7 @@ function NewsDetail() {
                                       )
                                     : t('news:badge')}
                             </p>
-                            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 drop-shadow-lg leading-tight">
+                            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 drop-shadow-lg leading-tight">
                                 {news.title}
                             </h1>
                         </div>
@@ -154,11 +154,11 @@ function NewsDetail() {
                             <h2 className="text-2xl font-bold text-[#204F01] mb-4">{t('news:detail.gallery')}</h2>
 
                             {/* Image principale avec navigation */}
-                            <div className="relative rounded-2xl overflow-hidden shadow-lg bg-black/5">
+                            <div className="relative rounded-2xl overflow-hidden shadow-lg bg-gray-100 flex items-center justify-center min-h-[360px] md:min-h-[420px]">
                                 <img
                                     src={news.images[currentImageIndex]}
                                     alt={`${news.title} - Image ${currentImageIndex + 1}`}
-                                    className="w-full h-[360px] md:h-[420px] object-cover transition-all duration-500"
+                                    className="w-full max-h-[480px] md:max-h-[560px] object-contain transition-all duration-500"
                                 />
 
                                 {/* Badge compteur */}
@@ -227,7 +227,7 @@ function NewsDetail() {
                                             key={index}
                                             type="button"
                                             onClick={() => setCurrentImageIndex(index)}
-                                            className={`relative flex-shrink-0 rounded-lg overflow-hidden border transition-all ${
+                                            className={`relative flex-shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-lg overflow-hidden border transition-all bg-gray-100 flex items-center justify-center ${
                                                 currentImageIndex === index
                                                     ? 'border-[#A2140F] ring-2 ring-[#A2140F]/40'
                                                     : 'border-gray-200 hover:border-[#A2140F]/60'
@@ -236,7 +236,7 @@ function NewsDetail() {
                                             <img
                                                 src={img}
                                                 alt={`${news.title} - vignette ${index + 1}`}
-                                                className="w-20 h-20 md:w-24 md:h-24 object-cover"
+                                                className="w-full h-full object-contain"
                                             />
                                         </button>
                                     ))}
@@ -275,9 +275,9 @@ function NewsDetail() {
                     )}
 
                     {/* Informations supplémentaires */}
-                    <div className="border-t border-gray-200 pt-8 mt-8">
-                        <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600">
-                            {news.published_at && (
+                    {news.published_at && (
+                        <div className="border-t border-gray-200 pt-8 mt-8">
+                            <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600">
                                 <div>
                                     <span className="font-semibold">{t('news:detail.publicationDate')}</span>{' '}
                                     {new Date(news.published_at).toLocaleDateString(
@@ -289,19 +289,9 @@ function NewsDetail() {
                                         }
                                     )}
                                 </div>
-                            )}
-                            {news.is_published !== undefined && (
-                                <div>
-                                    <span className="font-semibold">{t('news:detail.status')}</span>{' '}
-                                    {news.is_published ? (
-                                        <span className="text-green-600">{t('news:detail.published')}</span>
-                                    ) : (
-                                        <span className="text-gray-500">{t('news:detail.draft')}</span>
-                                    )}
-                                </div>
-                            )}
+                            </div>
                         </div>
-                    </div>
+                    )}
                 </div>
             </section>
         </>

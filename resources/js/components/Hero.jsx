@@ -3,17 +3,16 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 // Nom du fichier vidéo dans public/video (modifiable si vous changez la vidéo)
-const HERO_VIDEO_FILENAME = "C4907_1.mp4";
 
 function Hero() {
     const { t } = useTranslation(['common', 'home']);
 
-    const videoSrc = '/video/' + encodeURIComponent(HERO_VIDEO_FILENAME);
+    const videoSrc = 'https://aiais.org/public/video/C4907_1.mp4' 
 
     return (
-        <section className="relative min-h-screen h-[100vh] overflow-hidden" id="home">
-            {/* Vidéo en arrière-plan */}
-            <div className="absolute inset-0">
+        <section className="relative min-h-screen h-[100vh] overflow-hidden" id="home" style={{ marginTop: 0, paddingTop: 0, top: 0 }}>
+            {/* Vidéo en arrière-plan - commence tout en haut */}
+            <div className="absolute inset-0" style={{ top: 0 }}>
                 <video
                     autoPlay
                     muted
@@ -22,15 +21,16 @@ function Hero() {
                     className="absolute inset-0 w-full h-full object-cover"
                     src={videoSrc}
                     aria-hidden="true"
+                    style={{ top: 0 }}
                 >
                     <source src={videoSrc} type="video/mp4" />
                 </video>
                 {/* Légère ombre pour garder le texte lisible, sans teinter la vidéo */}
-                <div className="absolute inset-0 bg-black/25" />
+                <div className="absolute inset-0 bg-black/25" style={{ top: 0 }} />
             </div>
 
-            {/* Contenu texte et boutons */}
-            <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 h-full pt-12 md:pt-16 flex items-center">
+            {/* Contenu texte et boutons - padding minimal pour ne pas être caché par le Header fixed */}
+            <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 h-full pt-8 md:pt-12 lg:pt-16 flex items-center">
                 <div className="max-w-2xl text-white animate-fade-in">
                     <p className="mb-2 md:mb-3 text-sm sm:text-base md:text-lg lg:text-xl font-medium text-white/90">
                         {t('home:hero.subtitle')}

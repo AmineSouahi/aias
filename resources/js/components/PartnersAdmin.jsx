@@ -482,10 +482,15 @@ function PartnersAdmin() {
                                     accept="image/*"
                                     multiple
                                     onChange={(e) =>
-                                        setForm((f) => ({
-                                            ...f,
-                                            galleryFiles: Array.from(e.target.files || []),
-                                        }))
+                                        setForm((f) => {
+                                            const newFiles = Array.from(e.target.files || []);
+                                            const existing = Array.isArray(f.galleryFiles) ? f.galleryFiles : [];
+                                            return {
+                                                ...f,
+                                                // Keep previously selected files and append new ones.
+                                                galleryFiles: [...existing, ...newFiles],
+                                            };
+                                        })
                                     }
                                     className="w-full text-sm"
                                 />

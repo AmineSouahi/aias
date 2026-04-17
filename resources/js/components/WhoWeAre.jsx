@@ -21,7 +21,7 @@ function WhoWeAre() {
                         <div className="order-1 md:order-1">
                             <div className="bg-gray-100 rounded-lg p-4">
                                 <img
-                                    src="/images/team_2025.webp"
+                                    src="/images/equipe.jpeg"
                                     alt={t('home:whoWeAre.imageAlt')}
                                     className="w-full h-auto rounded-lg object-cover"
                                 />

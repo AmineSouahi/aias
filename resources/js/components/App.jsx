@@ -10,7 +10,7 @@ function App() {
     return (
         <div className="min-h-screen bg-white">
             <Header />
-            <main>
+            <main style={{ marginTop: 0, paddingTop: 0 }}>
                 <Hero />
                 <About />
                 <News />

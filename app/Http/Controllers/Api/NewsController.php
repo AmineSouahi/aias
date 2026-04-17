@@ -9,6 +9,45 @@ use Illuminate\Support\Facades\Storage;
 
 class NewsController extends Controller
 {
+    /**
+     * Convert legacy/Windows paths to browser-friendly public URLs.
+     */
+    private function normalizeMediaUrl($value)
+    {
+        if (!$value || !is_string($value)) {
+            return null;
+        }
+
+        $url = trim(str_replace('\\', '/', $value));
+        if ($url === '') {
+            return null;
+        }
+
+        // Keep absolute external URLs untouched.
+        if (preg_match('#^https?://#i', $url)) {
+            return $url;
+        }
+
+        // Legacy values stored as /news/... should be served from /storage/news/...
+        if (str_starts_with($url, '/news/')) {
+            return '/storage' . $url;
+        }
+
+        if (str_starts_with($url, 'news/')) {
+            return '/storage/' . $url;
+        }
+
+        if (str_starts_with($url, '/storage/')) {
+            return $url;
+        }
+
+        if (str_starts_with($url, 'storage/')) {
+            return '/' . $url;
+        }
+
+        return str_starts_with($url, '/') ? $url : '/' . $url;
+    }
+
     public function index(Request $request)
     {
         // Récupérer la langue depuis la requête ou utiliser 'fr' par défaut
@@ -53,14 +92,21 @@ class NewsController extends Controller
         $excerptColumn = "excerpt_{$locale}";
         $contentColumn = "content_{$locale}";
         
+        $images = [];
+        if (is_array($news->images)) {
+            $images = array_values(array_filter(array_map(function ($img) {
+                return $this->normalizeMediaUrl($img);
+            }, $news->images)));
+        }
+
         return [
             'id' => $news->id,
             'title' => $news->$titleColumn ?? $news->title_fr ?? $news->title,
             'excerpt' => $news->$excerptColumn ?? $news->excerpt_fr ?? $news->excerpt,
             'content' => $news->$contentColumn ?? $news->content_fr ?? $news->content,
-            'image' => $news->image,
-            'images' => $news->images,
-            'video_url' => $news->video_url,
+            'image' => $this->normalizeMediaUrl($news->image),
+            'images' => $images,
+            'video_url' => $this->normalizeMediaUrl($news->video_url),
             'published_at' => $news->published_at,
             'is_published' => $news->is_published,
             'created_at' => $news->created_at,

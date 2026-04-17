@@ -729,6 +729,22 @@ function WhatWeDo() {
         },
     ];
 
+    const documents = t('whatWeDo:download.documents', { returnObjects: true });
+    const documentsList = Array.isArray(documents) ? documents : [];
+    const fallbackDocuments = [
+        {
+            button: t('whatWeDo:download.button'),
+            href: '/documents/LAssociation-Initiative-Al-Amal-pour-lIntegration-Sociale.pdf',
+            fileName: 'forsa-taahil-details.pdf',
+        },
+        {
+            button: t('whatWeDo:download.activityButton'),
+            href: "/documents/Rapport d'activité.pdf",
+            fileName: 'rapport-activite.pdf',
+        },
+    ];
+    const visibleDocuments = documentsList.length > 0 ? documentsList : fallbackDocuments;
+
 
     return (
         <>
@@ -992,14 +1008,27 @@ function WhatWeDo() {
                     {/* Profils accompagnés */}
                     <ProfilesSection profiles={profiles} />
 
-                    <div className="mt-10 text-center">
-                        <a
-                            href={`/documents/${encodeURIComponent('LAssociation-Initiative-Al-Amal-pour-lIntegration-Sociale.pdf')}`}
-                            download="forsa-taahil-details.pdf"
-                            className="inline-block bg-[#A2140F] text-white px-8 py-3 rounded-lg text-sm md:text-base font-semibold hover:bg-[#c91a14] transition-colors"
-                        >
-                            {t('whatWeDo:download.button')}
-                        </a>
+                    <div className="mt-10 flex flex-col items-center gap-4">
+                        {visibleDocuments.map((doc, index) => {
+                            const href = typeof doc?.href === 'string' ? encodeURI(doc.href) : '#';
+                            const buttonText = doc?.button || t('whatWeDo:download.button');
+                            const fileName = typeof doc?.fileName === 'string' ? doc.fileName : undefined;
+                            const isActivityReportButton = index === 1;
+                            const buttonColorClass = isActivityReportButton
+                                ? 'bg-[#204F01] hover:bg-[#2d6a02]'
+                                : 'bg-[#A2140F] hover:bg-[#c91a14]';
+
+                            return (
+                                <a
+                                    key={`${href}-${index}`}
+                                    href={href}
+                                    download={fileName}
+                                    className={`w-full max-w-xl text-white px-6 py-3 rounded-lg text-sm md:text-base font-semibold transition-colors text-center ${buttonColorClass}`}
+                                >
+                                    {buttonText}
+                                </a>
+                            );
+                        })}
                     </div>
                 </div>
             </section>
